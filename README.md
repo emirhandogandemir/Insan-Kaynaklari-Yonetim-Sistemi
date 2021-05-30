@@ -8,7 +8,7 @@ Eclipse Sorunu yüzünden İnsan-Kaynakları-YönetimSisteminiBuRepomaTaşıdım
 `Spring Web`
 `PostgreSql`
 `Swagger`
-<img src="https://user-images.githubusercontent.com/74687192/120121937-b9c38180-c1ae-11eb-8b7f-2e4ad3197598.jpg" width="200" height="400" />
+<img src="https://user-images.githubusercontent.com/74687192/120121937-b9c38180-c1ae-11eb-8b7f-2e4ad3197598.jpg" width="15%" height="15%" />
 ![Hibernate](https://user-images.githubusercontent.com/74687192/120121937-b9c38180-c1ae-11eb-8b7f-2e4ad3197598.jpg)
 ![lombok](https://user-images.githubusercontent.com/74687192/120121939-ba5c1800-c1ae-11eb-8327-67e22b7c7664.png)
 ![swagger](https://user-images.githubusercontent.com/74687192/120121941-baf4ae80-c1ae-11eb-86b1-5647438c8b4a.png)
