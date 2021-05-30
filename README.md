@@ -18,7 +18,7 @@ Eclipse Sorunu yüzünden İnsan-Kaynakları-YönetimSisteminiBuRepomaTaşıdım
 
 ### Swagger Tarafında Anlık Görüntü
 
-
+![swager foto](https://user-images.githubusercontent.com/74687192/120122286-7e29b700-c1b0-11eb-949b-c095b40786f8.PNG)
 
 
 
