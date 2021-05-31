@@ -1,6 +1,7 @@
 # İnsan Kaynakları Yönetim Sistemi
 
 insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlamak için bir dizi sistemi ve işlemi birleştiren bir insan kaynakları yazılımı şeklidir.
+![HRMS](https://user-images.githubusercontent.com/74687192/120178589-566b3b00-c212-11eb-9617-69f8a5e6031c.png)
 ---
 ## Kullanılan Teknolojiler 
 - `Lombok`
