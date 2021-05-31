@@ -22,6 +22,9 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
 ![swager foto](https://user-images.githubusercontent.com/74687192/120122286-7e29b700-c1b0-11eb-949b-c095b40786f8.PNG)
 
 
-
-
+## Projemİ Geliştirirken Faydalandığım linkler 
+---
+  [Baeldung](https://www.baeldung.com)
+  [Validation](https://www.baeldung.com/javax-validation)
+  [Jpa Entities](https://www.baeldung.com/jpa-entities)
   
