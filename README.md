@@ -28,4 +28,6 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
    Genel olarak :[Baeldung](https://www.baeldung.com)
   Validasyon işlemleri için : [Validation](https://www.baeldung.com/javax-validation)
    Entitites Katmanında Db Bğlantısı ve ayarlar için [Jpa Entities](https://www.baeldung.com/jpa-entities)
-  
+   List of Rules kuralları için : [List of Rules](https://www.baeldung.com/java-rule-engines)
+   Spring Data Jpa [Spring Data Jpa](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories)
+  MicroService [Microservice Mimarisi](https://gokhana.medium.com/microservice-mimarisi-nedir-microservice-mimarisine-giri%C5%9F-948e30cf65b1)
