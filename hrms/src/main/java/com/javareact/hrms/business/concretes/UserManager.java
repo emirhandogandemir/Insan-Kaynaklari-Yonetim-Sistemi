@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javareact.hrms.business.abstracts.UserService;
+import com.javareact.hrms.core.dataAccess.UserDao;
+import com.javareact.hrms.core.entities.User;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.core.utilities.results.SuccessDataResult;
 import com.javareact.hrms.core.utilities.results.SuccessResult;
-import com.javareact.hrms.dataAccess.abstracts.UserDao;
-import com.javareact.hrms.entities.concretes.User;
 
 @Service
 public class UserManager implements UserService {

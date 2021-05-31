@@ -1,9 +1,8 @@
-package com.javareact.hrms.dataAccess.abstracts;
+package com.javareact.hrms.core.dataAccess;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-
-import com.javareact.hrms.entities.concretes.User;
+import com.javareact.hrms.core.entities.User;
 
 public interface UserDao extends JpaRepository<User,Integer> {
 	User findUserByEmail(String email);

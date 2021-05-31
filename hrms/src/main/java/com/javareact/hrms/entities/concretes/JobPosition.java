@@ -10,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -33,6 +35,8 @@ public class JobPosition {
 	private int id;
 	
 	@Column(name="job_title")
+	@NotNull
+	@NotBlank
 	private String jobTitle;
 	
 	@Column(name= "created_at", columnDefinition = "Date default CURRENT_DATE")

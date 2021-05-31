@@ -1,6 +1,9 @@
-package com.javareact.hrms.entities.concretes;
+package com.javareact.hrms.core.entities;
 
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,9 +35,14 @@ public class User{
 	private int id;
 	
 	@Column(name="email")
+	@Email
+	@NotBlank
+	@NotNull
 	private String email;
 	
 	@Column(name="password")
+	@NotBlank
+	@NotNull
 	private String password;
 
 	@Column(name= "created_at", columnDefinition = "Date default CURRENT_DATE")

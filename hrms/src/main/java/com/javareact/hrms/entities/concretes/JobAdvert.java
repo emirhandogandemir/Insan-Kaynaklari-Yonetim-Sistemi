@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -41,6 +45,8 @@ public class JobAdvert {
 //	private int cityId;
 
 	@Column(name = "description")
+	@NotNull
+	@NotBlank
 	private String description;
 
 	@Column(name = "salary_min")
@@ -50,9 +56,11 @@ public class JobAdvert {
 	private int salaryMax;
 
 	@Column(name = "open_position_count")
+	@Min(value=1)
 	private int openPositionCount;
 
 	@Column(name = "deadline")
+	@Future
 	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDateTime deadline;
 
