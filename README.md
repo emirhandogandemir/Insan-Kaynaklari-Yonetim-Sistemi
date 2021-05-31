@@ -1,6 +1,5 @@
 # İnsan Kaynakları Yönetim Sistemi
-Backendini Javada Frontendini ise React ile yazacağım insan kaynakları yönetim kısmınının backend kısmıdır
-Eclipse Sorunu yüzünden İnsan-Kaynakları-YönetimSisteminiBuRepomaTaşıdım
+insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlamak için bir dizi sistemi ve işlemi birleştiren bir insan kaynakları yazılımı şeklidir.
 ## Kullanılan Teknolojiler 
 - `Lombok`
 - <img src="https://user-images.githubusercontent.com/74687192/120121939-ba5c1800-c1ae-11eb-8327-67e22b7c7664.png" width="15%" height="15%" />
