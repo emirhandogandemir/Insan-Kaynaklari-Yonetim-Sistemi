@@ -24,7 +24,7 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
 
 ## Projemİ Geliştirirken Faydalandığım linkler 
 ---
-  [Baeldung](https://www.baeldung.com)
-  [Validation](https://www.baeldung.com/javax-validation)
-  [Jpa Entities](https://www.baeldung.com/jpa-entities)
+   Genel olarak :[Baeldung](https://www.baeldung.com)
+  Validasyon işlemleri için : [Validation](https://www.baeldung.com/javax-validation)
+   Entitites Katmanında Db Bğlantısı ve ayarlar için [Jpa Entities](https://www.baeldung.com/jpa-entities)
   
