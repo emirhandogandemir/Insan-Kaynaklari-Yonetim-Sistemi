@@ -1,5 +1,5 @@
 # İnsan Kaynakları Yönetim Sistemi
----
+
 insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlamak için bir dizi sistemi ve işlemi birleştiren bir insan kaynakları yazılımı şeklidir.
 ---
 ## Kullanılan Teknolojiler 
