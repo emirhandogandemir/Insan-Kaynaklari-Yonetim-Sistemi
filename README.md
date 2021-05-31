@@ -1,7 +1,7 @@
 # İnsan Kaynakları Yönetim Sistemi
 
 insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlamak için bir dizi sistemi ve işlemi birleştiren bir insan kaynakları yazılımı şeklidir.
-![HRMS](https://user-images.githubusercontent.com/74687192/120178589-566b3b00-c212-11eb-9617-69f8a5e6031c.png)
+         ![HRMS](https://user-images.githubusercontent.com/74687192/120178589-566b3b00-c212-11eb-9617-69f8a5e6031c.png)
 ---
 ## Kullanılan Teknolojiler 
 - `Lombok`
@@ -31,3 +31,4 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
    List of Rules kuralları için : [List of Rules](https://www.baeldung.com/java-rule-engines)
    Spring Data Jpa [Spring Data Jpa](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories)
   MicroService [Microservice Mimarisi](https://gokhana.medium.com/microservice-mimarisi-nedir-microservice-mimarisine-giri%C5%9F-948e30cf65b1)
+  Derived Query Methods in Spring Data JPA Repositories [Derived Query Methods](https://www.baeldung.com/spring-data-derived-queries)
