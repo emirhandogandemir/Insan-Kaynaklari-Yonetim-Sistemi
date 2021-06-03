@@ -1,6 +1,8 @@
-# hrmsSistemi
-Backendini Javada Frontendini ise React ile yazacağım insan kaynakları yönetim kısmınının backend kısmıdır
-Eclipse Sorunu yüzünden İnsan-Kaynakları-YönetimSisteminiBuRepomaTaşıdım
+# İnsan Kaynakları Yönetim Sistemi
+
+insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlamak için bir dizi sistemi ve işlemi birleştiren bir insan kaynakları yazılımı şeklidir.
+         ![HRMS](https://user-images.githubusercontent.com/74687192/120178589-566b3b00-c212-11eb-9617-69f8a5e6031c.png)
+---
 ## Kullanılan Teknolojiler 
 - `Lombok`
 - <img src="https://user-images.githubusercontent.com/74687192/120121939-ba5c1800-c1ae-11eb-8327-67e22b7c7664.png" width="15%" height="15%" />
@@ -17,10 +19,16 @@ Eclipse Sorunu yüzünden İnsan-Kaynakları-YönetimSisteminiBuRepomaTaşıdım
 - <img src="https://user-images.githubusercontent.com/74687192/120121941-baf4ae80-c1ae-11eb-86b1-5647438c8b4a.png" width="10%" height="10%" />
 
 ### Swagger Tarafında Anlık Görüntü
-
+   
 ![swager foto](https://user-images.githubusercontent.com/74687192/120122286-7e29b700-c1b0-11eb-949b-c095b40786f8.PNG)
-
-
-
-
   
+    
+## Projemİ Geliştirirken Faydalandığım linkler 
+---
+- Genel olarak :[Baeldung](https://www.baeldung.com)
+- Validasyon işlemleri için : [Validation](https://www.baeldung.com/javax-validation)
+- Entitites Katmanında Db Bğlantısı ve ayarlar için [Jpa Entities](https://www.baeldung.com/jpa-entities)
+- List of Rules kuralları için : [List of Rules](https://www.baeldung.com/java-rule-engines)
+- Spring Data Jpa [Spring Data Jpa](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories)
+- MicroService [Microservice Mimarisi](https://gokhana.medium.com/microservice-mimarisi-nedir-microservice-mimarisine-giri%C5%9F-948e30cf65b1)
+- Derived Query Methods in Spring Data JPA Repositories [Derived Query Methods](https://www.baeldung.com/spring-data-derived-queries)
