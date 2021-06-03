@@ -18,4 +18,6 @@ public interface JobAdvertDao extends JpaRepository<JobAdvert, Integer> {
 	@Query("From JobAdvert where isOpen = true and employer_id =:id")
 	List<JobAdvert> getAllOpenJobAdvertByEmployer(int id);
 	
+	JobAdvert getById(int id);
+	
 }

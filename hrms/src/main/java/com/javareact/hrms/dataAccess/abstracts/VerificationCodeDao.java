@@ -8,4 +8,6 @@ import com.javareact.hrms.entities.concretes.VerificationCode;
 
 public interface VerificationCodeDao extends JpaRepository<VerificationCode,Integer>{
 	// Optional<VerificationCode> findByUserUuid(UUID uuid);
+	
+	VerificationCode getById(int id);
 }
