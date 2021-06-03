@@ -32,7 +32,7 @@ public class SkillForCvManager implements SkillForCvService {
 		this.skillForCvDao.deleteById(id);
 		return new SuccessResult("skill has been deleted");
 	}
-
+       
 	@Override
 	public Result update(SkillForCv skillForCv) {
 		this.skillForCvDao.save(skillForCv);
