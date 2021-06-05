@@ -17,10 +17,12 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
 - <img src="https://user-images.githubusercontent.com/74687192/120121946-bd570880-c1ae-11eb-9278-e159bbba8808.jpeg" width="15%" height="15%" />
 - `Swagger`
 - <img src="https://user-images.githubusercontent.com/74687192/120121941-baf4ae80-c1ae-11eb-86b1-5647438c8b4a.png" width="10%" height="10%" />
+- `Cloudinary`
+- <img src="https://user-images.githubusercontent.com/74687192/120887527-1504d200-c5fc-11eb-958f-79266c3a93fa.png" width="15%" height="15%" />
 
 ### Swagger Tarafında Anlık Görüntü
    
-![swager foto](https://user-images.githubusercontent.com/74687192/120122286-7e29b700-c1b0-11eb-949b-c095b40786f8.PNG)
+![swagger](https://user-images.githubusercontent.com/74687192/120887592-817fd100-c5fc-11eb-95fa-408f50937e98.PNG)
   
     
 ## Projemİ Geliştirirken Faydalandığım linkler 
@@ -32,3 +34,4 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
 - Spring Data Jpa [Spring Data Jpa](https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories)
 - MicroService [Microservice Mimarisi](https://gokhana.medium.com/microservice-mimarisi-nedir-microservice-mimarisine-giri%C5%9F-948e30cf65b1)
 - Derived Query Methods in Spring Data JPA Repositories [Derived Query Methods](https://www.baeldung.com/spring-data-derived-queries)
+- @Request Param Annotation [Spring @RequestParam Annotation](https://www.baeldung.com/spring-request-param)
