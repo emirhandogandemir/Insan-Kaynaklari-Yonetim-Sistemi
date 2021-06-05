@@ -18,7 +18,7 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
 - `Swagger`
 - <img src="https://user-images.githubusercontent.com/74687192/120121941-baf4ae80-c1ae-11eb-86b1-5647438c8b4a.png" width="10%" height="10%" />
 - `Cloudinary`
-- <img src="https://user-images.githubusercontent.com/74687192/120887527-1504d200-c5fc-11eb-958f-79266c3a93fa.png" width="10%" height="10%" />
+- <img src="https://user-images.githubusercontent.com/74687192/120887527-1504d200-c5fc-11eb-958f-79266c3a93fa.png" width="15%" height="15%" />
 
 ### Swagger Tarafında Anlık Görüntü
    
