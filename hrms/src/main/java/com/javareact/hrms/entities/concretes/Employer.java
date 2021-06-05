@@ -30,10 +30,7 @@ import lombok.NoArgsConstructor;
 public class Employer extends User{
 
 
-//	@Id
-//	@GeneratedValue
-//	@Column(name= "user_id")
-//	private int userId;
+
 	
 	@Column(name= "company_name")
 	@NotNull(message="CompanyName cannot be null")
