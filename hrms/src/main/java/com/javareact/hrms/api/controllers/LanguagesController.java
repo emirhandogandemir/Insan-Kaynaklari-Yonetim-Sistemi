@@ -19,40 +19,40 @@ import com.javareact.hrms.entities.concretes.LanguageForCv;
 @RequestMapping("api/languages/")
 public class LanguagesController {
 
-	private LanguageForCvService laguageForCvService;
+	private LanguageForCvService languageForCvService;
 
 	@Autowired
 	public LanguagesController(LanguageForCvService laguageForCvService) {
 		super();
-		this.laguageForCvService = laguageForCvService;
+		this.languageForCvService = laguageForCvService;
 	}
 	
 	@PostMapping("add")
 	public Result add (@RequestBody LanguageForCv languageForCv) {
-		return this.laguageForCvService.add(languageForCv);
+		return this.languageForCvService.add(languageForCv);
 	}
 	@PostMapping("update")
 	public Result update(@RequestBody LanguageForCv languageForCv) {
-		return this.laguageForCvService.update(languageForCv);
+		return this.languageForCvService.update(languageForCv);
 	}
 	
 	@PostMapping("delete")
 	public Result delete (@RequestParam("id") int id) {
-		return this.laguageForCvService.delete(id);
+		return this.languageForCvService.delete(id);
 	}
 	
 	@GetMapping("getbyid")
 	public DataResult<LanguageForCv> getById(@RequestParam("id") int id ) {
-		return this.laguageForCvService.getById(id);
+		return this.languageForCvService.getById(id);
 	}
 	@GetMapping("getall")
 	public DataResult<List<LanguageForCv>> getAll(){
-		return this.laguageForCvService.getAll();
+		return this.languageForCvService.getAll();
 	}
 	
 	@GetMapping("getAllByJobSeekerId")
 	public DataResult<List<LanguageForCv>> getAllByJobSeekerId(@RequestParam int id){
-		return this.laguageForCvService.getAllByJobSeekerId(id);
+		return this.languageForCvService.getAllByJobSeekerId(id);
 				
 	}
 }

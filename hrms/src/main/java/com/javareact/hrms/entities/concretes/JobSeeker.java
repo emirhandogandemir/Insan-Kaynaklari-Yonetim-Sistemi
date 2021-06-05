@@ -1,13 +1,16 @@
 package com.javareact.hrms.entities.concretes;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
@@ -61,9 +64,9 @@ public class JobSeeker extends User {
 	@JsonIgnore()
 	private List<LanguageForCv> languages;
 	
-	@OneToMany(mappedBy = "jobSeeker")
 	@JsonIgnore
-	private List<ImageForCv> images;
+	@OneToOne(mappedBy = "jobSeeker", optional=false, fetch=FetchType.LAZY)
+	private ImageForCv image;
 	
 	@OneToMany(mappedBy="jobSeeker")
 	@JsonIgnore
@@ -83,7 +86,7 @@ public class JobSeeker extends User {
 	
 	@Column(name = "date_of_birth")
 	@Past
-	private LocalDate dateOfBirth;
+	private LocalDateTime dateOfBirth;
 
 	@Column(name = "is_verified", columnDefinition = "boolean default false")
 	private boolean isVerified = false;

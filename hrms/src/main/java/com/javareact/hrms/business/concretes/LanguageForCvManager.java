@@ -15,46 +15,46 @@ import com.javareact.hrms.entities.concretes.LanguageForCv;
 @Service
 public class LanguageForCvManager implements LanguageForCvService {
 
-	private LanguageForCvDao jobSeekerLanguageDao;
+	private LanguageForCvDao languageForCvDao;
 	
 	@Autowired
-	public LanguageForCvManager(LanguageForCvDao jobSeekerLanguageDao) {
+	public LanguageForCvManager(LanguageForCvDao languageForCvDao) {
 		super();
-		this.jobSeekerLanguageDao = jobSeekerLanguageDao;
+		this.languageForCvDao = languageForCvDao;
 	}
 
 	@Override
-	public Result add(LanguageForCv jobSeekerLanguage) {
-		this.jobSeekerLanguageDao.save(jobSeekerLanguage);
+	public Result add(LanguageForCv languageForCvDao) {
+		this.languageForCvDao.save(languageForCvDao);
 		return new SuccessResult("jobSeekerLanguage added");
 	}
 
 	@Override
 	public DataResult<List<LanguageForCv>> getAll() {
 		
-		return new SuccessDataResult<List<LanguageForCv>>(this.jobSeekerLanguageDao.findAll());
+		return new SuccessDataResult<List<LanguageForCv>>(this.languageForCvDao.findAll());
 	}
 
 	@Override
 	public Result update(LanguageForCv languageForCv) {
-		this.jobSeekerLanguageDao.save(languageForCv);
-		return new SuccessResult("language has been deleted");
+		this.languageForCvDao.save(languageForCv);
+		return new SuccessResult("language has been updated");
 	}
 
 	@Override
 	public Result delete(int id) {
-		this.jobSeekerLanguageDao.deleteById(id);
+		this.languageForCvDao.deleteById(id);
 		return new SuccessResult("language has been deleted");
 	}
 
 	@Override
 	public DataResult<LanguageForCv> getById(int id) {
-		return new SuccessDataResult<LanguageForCv>(this.jobSeekerLanguageDao.getById(id));
+		return new SuccessDataResult<LanguageForCv>(this.languageForCvDao.getById(id));
 	}
 
 	@Override
 	public DataResult<List<LanguageForCv>> getAllByJobSeekerId(int id) {
-		return new SuccessDataResult<List<LanguageForCv>>(this.jobSeekerLanguageDao.getAllByJobSeeker_id(id));
+		return new SuccessDataResult<List<LanguageForCv>>(this.languageForCvDao.getAllByJobSeeker_id(id));
 	}
 
 }

@@ -8,7 +8,7 @@ import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.entities.concretes.LanguageForCv;
 
 public interface LanguageForCvService {
-	Result add(LanguageForCv jobSeekerLanguage);
+	Result add(LanguageForCv languageForCv);
 	Result update(LanguageForCv languageForCv);
 	Result delete(int id);
 	DataResult<LanguageForCv> getById(int id);

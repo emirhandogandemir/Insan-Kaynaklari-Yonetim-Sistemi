@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.google.common.net.MediaType;
+
 import com.javareact.hrms.business.abstracts.ImageForCvService;
 import com.javareact.hrms.business.abstracts.JobSeekerService;
 import com.javareact.hrms.core.utilities.results.DataResult;
@@ -19,7 +21,7 @@ import com.javareact.hrms.entities.concretes.ImageForCv;
 import com.javareact.hrms.entities.concretes.JobSeeker;
 
 @RestController
-@RequestMapping("/api/languages/")
+@RequestMapping("/api/images/")
 public class ImagesController {
 
 	private ImageForCvService imageForCvService;
@@ -54,15 +56,15 @@ public class ImagesController {
 	public DataResult<ImageForCv> getById(@RequestParam("id") int id) {
 		return this.imageForCvService.getById(id);
 	}
-	
+
 	@GetMapping("getall")
-	public DataResult<List<ImageForCv>> getAll(){
+	public DataResult<List<ImageForCv>> getAll() {
 		return this.imageForCvService.getAll();
 	}
-	
+
 	@GetMapping("getByJobSeekerId")
-	public DataResult<ImageForCv> getByJobSeekerId(@RequestParam int id){
+	public DataResult<ImageForCv> getByJobSeekerId(@RequestParam int id) {
 		return this.imageForCvService.getByJobSeekerId(id);
 	}
-	
+
 }
