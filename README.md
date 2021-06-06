@@ -21,7 +21,7 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
 - <img src="https://user-images.githubusercontent.com/74687192/120887527-1504d200-c5fc-11eb-958f-79266c3a93fa.png" width="15%" height="15%" />
 
 ### Swagger Tarafında Anlık Görüntü
-   
+    
 ![swagger](https://user-images.githubusercontent.com/74687192/120887592-817fd100-c5fc-11eb-95fa-408f50937e98.PNG)
   
     
