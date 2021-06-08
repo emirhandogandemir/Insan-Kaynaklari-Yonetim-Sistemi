@@ -2,7 +2,10 @@ package com.javareact.hrms.api.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.javareact.hrms.business.abstracts.SkillService;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
+import com.javareact.hrms.entities.concretes.Link;
 import com.javareact.hrms.entities.concretes.Skill;
 
 @RestController
@@ -30,13 +34,14 @@ public class SkillsController {
 	 
 	 
 	 @PostMapping("add")
-		public Result add(@RequestBody Skill skillForCv){
-			return this.skillForCvService.add(skillForCv);
+		public ResponseEntity<?> add(@Valid @RequestBody Skill skillForCv){
+		 return ResponseEntity.ok(this.skillForCvService.add(skillForCv));
 		}
-		
+	 
+	
 		@PostMapping("update")
-		public Result update(@RequestBody Skill skillForCv){
-			return this.skillForCvService.update(skillForCv);
+		public ResponseEntity<?> update(@Valid @RequestBody Skill skillForCv){
+			return ResponseEntity.ok(this.skillForCvService.update(skillForCv));
 		}
 		
 		@PostMapping("delete")
