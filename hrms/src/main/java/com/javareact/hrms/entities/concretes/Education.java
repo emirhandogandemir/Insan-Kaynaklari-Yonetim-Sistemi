@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,6 +38,7 @@ public class Education extends Base{
     @Column(name = "start_year")
     @NotNull
     @NotBlank
+    @Past
     private int startYear;
 
     @Column(name = "graduation_year",nullable=true)

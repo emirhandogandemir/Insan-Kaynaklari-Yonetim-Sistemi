@@ -21,40 +21,38 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 
-
 @Entity
 @Table(name = "users")
 @Data
 @Inheritance(strategy = InheritanceType.JOINED)
 @NoArgsConstructor
 @AllArgsConstructor
-public class User{
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="id")
+	@Column(name = "id")
 	private int id;
-	
-	@Column(name="email")
+
+	@Column(name = "email")
 	@Email
 	@NotBlank
 	@NotNull
 	private String email;
-	
-	@Column(name="password")
+
+	@Column(name = "password")
 	@NotBlank
 	@NotNull
-	 @Size(min = 6, max = 20, message 
-     = "About Me must be between 6 and 20 characters")
+	@Size(min = 6, max = 20, message = "About Me must be between 6 and 20 characters")
 	private String password;
 
-	@Column(name= "created_at", columnDefinition = "Date default CURRENT_DATE")
+	@Column(name = "created_at", columnDefinition = "Date default CURRENT_DATE")
 	private LocalDateTime createdAt = LocalDateTime.now();
-	
-	@Column(name= "is_active", columnDefinition = "boolean default true")
+
+	@Column(name = "is_active", columnDefinition = "boolean default true")
 	private boolean isActive = true;
-	
-	@Column(name= "is_deleted", columnDefinition = "boolean default false")
+
+	@Column(name = "is_deleted", columnDefinition = "boolean default false")
 	private boolean isDeleted = false;
-	
+
 }
