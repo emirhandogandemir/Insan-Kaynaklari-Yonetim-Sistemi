@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,13 +32,13 @@ public class EducationsController {
 	}
 	
 	@PostMapping("add")
-	public Result add(@Valid @RequestBody Education educaitonForCv) {
-		return this.educationForCvService.add(educaitonForCv);
+	public ResponseEntity<?> add(@Valid @RequestBody Education educaitonForCv) {
+		return ResponseEntity.ok(this.educationForCvService.add(educaitonForCv));
 	}
 	
 	@PostMapping("update")
-	public Result update( @Valid @RequestBody Education educationForCv) {
-		return this.educationForCvService.update(educationForCv);
+	public ResponseEntity<?> update( @Valid @RequestBody Education educationForCv) {
+		return ResponseEntity.ok(this.educationForCvService.update(educationForCv));
 	}
 	
 	@PostMapping("delete")
