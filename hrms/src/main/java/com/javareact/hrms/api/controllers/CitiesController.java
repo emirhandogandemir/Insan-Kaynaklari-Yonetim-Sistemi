@@ -39,6 +39,14 @@ public class CitiesController {
 			return ResponseEntity.ok(this.cityService.add(city));
 		} 
 		
+		
+		@GetMapping("/getall")
+		@Cacheable("allCities")
+		public DataResult<List<City>> getAll(){
+			System.out.println(">>>inside getCity... ");
+			return this.cityService.getAll();
+		}
+}
 //		@PostMapping("/update")
 //		public Result update(@RequestBody City city){
 //			return this.cityService.update(city);
@@ -54,9 +62,4 @@ public class CitiesController {
 //			return this.cityService.getById(id);
 //		}
 	//	
-		@GetMapping("/getall")
-		@Cacheable("allCities")
-		public DataResult<List<City>> getAll(){
-			return this.cityService.getAll();
-		}
-}
+		

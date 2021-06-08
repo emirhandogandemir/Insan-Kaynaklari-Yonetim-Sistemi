@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.javareact.hrms.business.abstracts.CityService;
 import com.javareact.hrms.core.utilities.results.DataResult;
+import com.javareact.hrms.core.utilities.results.ErrorResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.core.utilities.results.SuccessDataResult;
 import com.javareact.hrms.core.utilities.results.SuccessResult;
@@ -27,8 +28,11 @@ private CityDao cityDao;
 	@Override
 	@CacheEvict(value="allCities" ,allEntries=true)
 	public Result add(City city) {
-		this.cityDao.save(city);
-	    return new SuccessResult("City has been added.");
+		if(cityDao.findCityByName(city.getName())==null) {
+			this.cityDao.save(city);
+		    return new SuccessResult("City has been added.");
+		}
+		return new ErrorResult("City has not been added");
 	}
 //
 //	@Override

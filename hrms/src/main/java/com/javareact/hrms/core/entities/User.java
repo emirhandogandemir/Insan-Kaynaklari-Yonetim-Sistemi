@@ -4,6 +4,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,6 +44,8 @@ public class User{
 	@Column(name="password")
 	@NotBlank
 	@NotNull
+	 @Size(min = 6, max = 20, message 
+     = "About Me must be between 6 and 20 characters")
 	private String password;
 
 	@Column(name= "created_at", columnDefinition = "Date default CURRENT_DATE")
