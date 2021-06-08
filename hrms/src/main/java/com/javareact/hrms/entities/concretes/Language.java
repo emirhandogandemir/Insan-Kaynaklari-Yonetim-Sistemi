@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "cv_foreign_languages")
-public class LanguageForCv extends Base{
+public class Language extends Base{
 
 	
 	

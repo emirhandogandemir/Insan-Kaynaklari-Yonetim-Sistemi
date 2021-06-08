@@ -1,5 +1,7 @@
 package com.javareact.hrms.entities.concretes;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +13,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,28 +23,28 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="cv_schools")
-
-public class EducationForCv extends Base{
+@Table(name = "cv_experiences")
+public class Experience extends Base{
+	
 	
 
-    @Column(name = "school_name")
+    @Column(name = "workplace_name")
     @NotNull
     @NotBlank
-    private String schoolName;
+    private String workplaceName;
 
-    @Column(name = "department_name")
+    @Column(name = "position")
     @NotNull
     @NotBlank
-    private String departmentName;
+    private String position;
 
-    @Column(name = "start_year")
+    @Column(name = "start_date")
     @NotNull
     @NotBlank
-    private int startYear;
+    private LocalDate startDate;
 
-    @Column(name = "graduation_year",nullable=true)
-    private int graduationYear;
+    @Column(name = "leave_date")
+    private LocalDate leaveDate;
 
     @ManyToOne()
     //@JsonIgnore()

@@ -37,7 +37,7 @@ public class City {
 	@NotBlank
 	private String name;
 	
-	@JsonIgnore// bunu swaggerda görmemin bir mantığı yok 
+	@JsonIgnore
 	@OneToMany(mappedBy = "city")
 	private List<JobAdvert> jobAdverts;
 }

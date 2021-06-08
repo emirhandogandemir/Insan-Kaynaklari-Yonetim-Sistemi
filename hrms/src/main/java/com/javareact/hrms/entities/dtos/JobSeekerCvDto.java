@@ -2,20 +2,20 @@ package com.javareact.hrms.entities.dtos;
 
 import java.util.List;
 
-import com.javareact.hrms.entities.concretes.EducationForCv;
-import com.javareact.hrms.entities.concretes.ExperienceForCv;
-import com.javareact.hrms.entities.concretes.ImageForCv;
+import com.javareact.hrms.entities.concretes.Education;
+import com.javareact.hrms.entities.concretes.Experience;
+import com.javareact.hrms.entities.concretes.Image;
 import com.javareact.hrms.entities.concretes.JobSeeker;
-import com.javareact.hrms.entities.concretes.LanguageForCv;
-import com.javareact.hrms.entities.concretes.LinkForCv;
-import com.javareact.hrms.entities.concretes.SkillForCv;
+import com.javareact.hrms.entities.concretes.Language;
+import com.javareact.hrms.entities.concretes.Link;
+import com.javareact.hrms.entities.concretes.Skill;
 
 public class JobSeekerCvDto {
 	public JobSeeker jobSeeker;
-	public List<EducationForCv> educations;
-	public List<SkillForCv> skills;
-	public List<LinkForCv> links;
-	public List<LanguageForCv> languages;
-	public List<ExperienceForCv> experiences;
-	public ImageForCv image;
+	public List<Education> educations;
+	public List<Skill> skills;
+	public List<Link> links;
+	public List<Language> languages;
+	public List<Experience> experiences;
+	public Image image;
 }

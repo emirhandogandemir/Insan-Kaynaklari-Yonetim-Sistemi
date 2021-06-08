@@ -13,30 +13,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.javareact.hrms.business.abstracts.EducationForCvService;
+import com.javareact.hrms.business.abstracts.EducationService;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
-import com.javareact.hrms.entities.concretes.EducationForCv;
+import com.javareact.hrms.entities.concretes.Education;
 
 @RestController
 @RequestMapping("/api/educations/")
 @CrossOrigin
 public class EducationsController {
 		
-	private EducationForCvService educationForCvService;
+	private EducationService educationForCvService;
 @Autowired
-	public EducationsController(EducationForCvService educationForCvService) {
+	public EducationsController(EducationService educationForCvService) {
 		super();
 		this.educationForCvService = educationForCvService;
 	}
 	
 	@PostMapping("add")
-	public Result add(@Valid @RequestBody EducationForCv educaitonForCv) {
+	public Result add(@Valid @RequestBody Education educaitonForCv) {
 		return this.educationForCvService.add(educaitonForCv);
 	}
 	
 	@PostMapping("update")
-	public Result update( @Valid @RequestBody EducationForCv educationForCv) {
+	public Result update( @Valid @RequestBody Education educationForCv) {
 		return this.educationForCvService.update(educationForCv);
 	}
 	
@@ -46,21 +46,21 @@ public class EducationsController {
 	}
 	
 	@GetMapping("getbyid")
-	public DataResult<EducationForCv> getByID(@RequestParam int id){
+	public DataResult<Education> getByID(@RequestParam int id){
 		return this.educationForCvService.getById(id);
 	}
 	
 	@GetMapping("getall")
-	public DataResult<List<EducationForCv>> getAll() {
+	public DataResult<List<Education>> getAll() {
 		return this.educationForCvService.getAll();
 	}
 	
 	@GetMapping("getAllByJobSeekerIdOrderByGraduationAtDesc")
-	public DataResult<List<EducationForCv>> getAllByJobSeekerIdOrderByGraduationAtDesc (@RequestParam int id){
+	public DataResult<List<Education>> getAllByJobSeekerIdOrderByGraduationAtDesc (@RequestParam int id){
 		return this.educationForCvService.getByJobSeekerIdOrderByGraduationYearDesc(id);
 	}
 	@GetMapping("getAllByJobSeekerId")
-	public DataResult<List<EducationForCv>> getAllByJobSeekerId(@RequestParam int id){
+	public DataResult<List<Education>> getAllByJobSeekerId(@RequestParam int id){
 		return this.educationForCvService.getAllByJobSeekerId(id);
 	}
 }

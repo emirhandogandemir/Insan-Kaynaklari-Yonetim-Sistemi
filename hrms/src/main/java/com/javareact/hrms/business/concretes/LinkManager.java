@@ -5,38 +5,38 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.javareact.hrms.business.abstracts.LinkForCvService;
+import com.javareact.hrms.business.abstracts.LinkService;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.core.utilities.results.SuccessDataResult;
 import com.javareact.hrms.core.utilities.results.SuccessResult;
-import com.javareact.hrms.dataAccess.abstracts.LinkForCvDao;
-import com.javareact.hrms.entities.concretes.LinkForCv;
-import com.javareact.hrms.entities.concretes.SkillForCv;
+import com.javareact.hrms.dataAccess.abstracts.LinkDao;
+import com.javareact.hrms.entities.concretes.Link;
+import com.javareact.hrms.entities.concretes.Skill;
 @Service
-public class LinkForCvManager implements LinkForCvService {
+public class LinkManager implements LinkService {
 
-	private LinkForCvDao jobSeekerLinkDao;
+	private LinkDao jobSeekerLinkDao;
 	
 	@Autowired
-	public LinkForCvManager(LinkForCvDao jobSeekerLinkDao) {
+	public LinkManager(LinkDao jobSeekerLinkDao) {
 		super();
 		this.jobSeekerLinkDao = jobSeekerLinkDao;
 	}
 
 	@Override
-	public Result add(LinkForCv jobSeekerLink) {
+	public Result add(Link jobSeekerLink) {
 		this.jobSeekerLinkDao.save(jobSeekerLink);
 		return new SuccessResult("jobSeekerLink added");
 	}
 
 	@Override
-	public DataResult<List<LinkForCv>> getAll() {
-		return new SuccessDataResult<List<LinkForCv>>(this.jobSeekerLinkDao.findAll());
+	public DataResult<List<Link>> getAll() {
+		return new SuccessDataResult<List<Link>>(this.jobSeekerLinkDao.findAll());
 	}
 
 	@Override
-	public Result update(LinkForCv linkForCv) {
+	public Result update(Link linkForCv) {
 		this.jobSeekerLinkDao.save(linkForCv);
 		
 		return new SuccessResult("Link has been updated");
@@ -49,13 +49,13 @@ public class LinkForCvManager implements LinkForCvService {
 	}
 
 	@Override
-	public DataResult<LinkForCv> getById(int id) {
-		return new SuccessDataResult<LinkForCv>(this.jobSeekerLinkDao.getById(id));
+	public DataResult<Link> getById(int id) {
+		return new SuccessDataResult<Link>(this.jobSeekerLinkDao.getById(id));
 	}
 
 	@Override
-	public DataResult<List<LinkForCv>> getAllByJobSeekerId(int id) {
-		return new SuccessDataResult<List<LinkForCv>>(this.jobSeekerLinkDao.getAllByJobSeeker_id(id));
+	public DataResult<List<Link>> getAllByJobSeekerId(int id) {
+		return new SuccessDataResult<List<Link>>(this.jobSeekerLinkDao.getAllByJobSeeker_id(id));
 	}
 
 }

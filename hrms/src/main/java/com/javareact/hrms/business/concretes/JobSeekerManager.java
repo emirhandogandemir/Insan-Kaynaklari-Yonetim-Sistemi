@@ -5,13 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.javareact.hrms.business.abstracts.EducationForCvService;
-import com.javareact.hrms.business.abstracts.ExperienceForCvService;
-import com.javareact.hrms.business.abstracts.ImageForCvService;
+import com.javareact.hrms.business.abstracts.EducationService;
+import com.javareact.hrms.business.abstracts.ExperienceService;
+import com.javareact.hrms.business.abstracts.ImageService;
 import com.javareact.hrms.business.abstracts.JobSeekerService;
-import com.javareact.hrms.business.abstracts.LanguageForCvService;
-import com.javareact.hrms.business.abstracts.LinkForCvService;
-import com.javareact.hrms.business.abstracts.SkillForCvService;
+import com.javareact.hrms.business.abstracts.LanguageService;
+import com.javareact.hrms.business.abstracts.LinkService;
+import com.javareact.hrms.business.abstracts.SkillService;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.core.utilities.results.SuccessDataResult;
@@ -22,18 +22,18 @@ import com.javareact.hrms.entities.dtos.JobSeekerCvDto;
 @Service
 public class JobSeekerManager implements JobSeekerService {
 
-	private ExperienceForCvService experienceForCvService;
-	private LanguageForCvService languageForCvService;
-	private ImageForCvService imageForCvService;
-	private LinkForCvService linkForCvService;
-	private SkillForCvService skillForCvService;
-	private EducationForCvService educationForCvService;
+	private ExperienceService experienceForCvService;
+	private LanguageService languageForCvService;
+	private ImageService imageForCvService;
+	private LinkService linkForCvService;
+	private SkillService skillForCvService;
+	private EducationService educationForCvService;
 	private JobSeekerDao jobseekerDao;
 
 @Autowired
-	public JobSeekerManager(ExperienceForCvService experienceForCvService, LanguageForCvService languageForCvService,
-			ImageForCvService imageForCvService, LinkForCvService linkForCvService, SkillForCvService skillForCvService,
-			EducationForCvService educationForCvService, JobSeekerDao jobseekerDao) {
+	public JobSeekerManager(ExperienceService experienceForCvService, LanguageService languageForCvService,
+			ImageService imageForCvService, LinkService linkForCvService, SkillService skillForCvService,
+			EducationService educationForCvService, JobSeekerDao jobseekerDao) {
 		super();
 		this.experienceForCvService = experienceForCvService;
 		this.languageForCvService = languageForCvService;

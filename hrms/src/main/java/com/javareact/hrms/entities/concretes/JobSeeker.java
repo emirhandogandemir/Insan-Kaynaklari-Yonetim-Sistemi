@@ -62,27 +62,27 @@ public class JobSeeker extends User {
 
 	@OneToMany(mappedBy = "jobSeeker")
 	@JsonIgnore()
-	private List<LanguageForCv> languages;
+	private List<Language> languages;
 	
 	@JsonIgnore
 	@OneToOne(mappedBy = "jobSeeker", optional=false, fetch=FetchType.LAZY)
-	private ImageForCv image;
+	private Image image;
 	
 	@OneToMany(mappedBy="jobSeeker")
 	@JsonIgnore
-	private List<EducationForCv> educations;
+	private List<Education> educations;
 	
 	@OneToMany(mappedBy="jobSeeker")
 	@JsonIgnore
-	private List<ExperienceForCv> experiences;
+	private List<Experience> experiences;
 	
 	@OneToMany(mappedBy="jobSeeker")
 	@JsonIgnore
-	private List<SkillForCv> skills;
+	private List<Skill> skills;
 	
 	@OneToMany(mappedBy="jobSeeker")
 	@JsonIgnore
-	private List<CoverLetterForCv> coverLetters;
+	private List<CoverLetter> coverLetters;
 	
 	@Column(name = "date_of_birth")
 	@Past

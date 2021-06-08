@@ -3,11 +3,14 @@ package com.javareact.hrms.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 import com.javareact.hrms.business.abstracts.CityService;
 import com.javareact.hrms.core.utilities.results.DataResult;
+import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.core.utilities.results.SuccessDataResult;
+import com.javareact.hrms.core.utilities.results.SuccessResult;
 import com.javareact.hrms.dataAccess.abstracts.CityDao;
 import com.javareact.hrms.entities.concretes.City;
 @Service
@@ -21,11 +24,12 @@ private CityDao cityDao;
 		this.cityDao = cityDao;
 	}
 	
-//	@Override
-//	public Result add(City city) {
-//		this.cityDao.save(city);
-//	    return new SuccessResult("City has been added.");
-//	}
+	@Override
+	@CacheEvict(value="allCities" ,allEntries=true)
+	public Result add(City city) {
+		this.cityDao.save(city);
+	    return new SuccessResult("City has been added.");
+	}
 //
 //	@Override
 //	public Result update(City city) {

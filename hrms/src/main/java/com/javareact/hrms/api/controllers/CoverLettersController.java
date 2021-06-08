@@ -10,31 +10,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.javareact.hrms.business.abstracts.CoverLetterForCvService;
+import com.javareact.hrms.business.abstracts.CoverLetterService;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
-import com.javareact.hrms.entities.concretes.CoverLetterForCv;
+import com.javareact.hrms.entities.concretes.CoverLetter;
 
 @RestController
 @RequestMapping("/api/coverletters/")
 public class CoverLettersController {
 
-	private CoverLetterForCvService coverLettersForCvService;
+	private CoverLetterService coverLettersForCvService;
 
 	@Autowired
-	public CoverLettersController(CoverLetterForCvService coverLettersForCvService) {
+	public CoverLettersController(CoverLetterService coverLettersForCvService) {
 		super();
 		this.coverLettersForCvService = coverLettersForCvService;
 	}
 	
 	
 	@PostMapping("add")
-	public Result add(@RequestBody CoverLetterForCv coverLetterForCv) {
+	public Result add(@RequestBody CoverLetter coverLetterForCv) {
 		return this.coverLettersForCvService.add(coverLetterForCv);
 	}
 	
 	@PostMapping("update")
-	public Result update(@RequestBody CoverLetterForCv coverLetterForCv) {
+	public Result update(@RequestBody CoverLetter coverLetterForCv) {
 		return this.coverLettersForCvService.update(coverLetterForCv)	;
 		
 	}
@@ -45,12 +45,12 @@ public class CoverLettersController {
 	}
 	
 	@GetMapping("getbyid")
-	public DataResult<CoverLetterForCv> getById(@RequestParam("id") int id){
+	public DataResult<CoverLetter> getById(@RequestParam("id") int id){
 		return this.coverLettersForCvService.getById(id);
 	}
 	
 	@GetMapping("getall")
-	public DataResult<List<CoverLetterForCv>> getAll(){
+	public DataResult<List<CoverLetter>> getAll(){
 		return this.coverLettersForCvService.getAll();
 	}
 }

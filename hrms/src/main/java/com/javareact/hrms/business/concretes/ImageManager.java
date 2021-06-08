@@ -7,36 +7,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.javareact.hrms.business.abstracts.ImageForCvService;
+import com.javareact.hrms.business.abstracts.ImageService;
 import com.javareact.hrms.core.utilities.imageUpload.ImageUploadService;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.core.utilities.results.SuccessDataResult;
 import com.javareact.hrms.core.utilities.results.SuccessResult;
-import com.javareact.hrms.dataAccess.abstracts.ImageForCvDao;
-import com.javareact.hrms.entities.concretes.ImageForCv;
+import com.javareact.hrms.dataAccess.abstracts.ImageDao;
+import com.javareact.hrms.entities.concretes.Image;
 @Service
-public class ImageForCvManager implements ImageForCvService {
+public class ImageManager implements ImageService {
 
-	private ImageForCvDao imageForCvDao;
+	private ImageDao imageForCvDao;
 	private ImageUploadService imageUploadService;
 	
 	
 
 @Autowired
-	public ImageForCvManager(ImageForCvDao imageForCvDao, ImageUploadService imageUploadService) {
+	public ImageManager(ImageDao imageForCvDao, ImageUploadService imageUploadService) {
 		super();
 		this.imageForCvDao = imageForCvDao;
 		this.imageUploadService = imageUploadService;
 	}
 
 	@Override
-	public DataResult<List<ImageForCv>> getAll() {
-	return new SuccessDataResult<List<ImageForCv>>(this.imageForCvDao.findAll());
+	public DataResult<List<Image>> getAll() {
+	return new SuccessDataResult<List<Image>>(this.imageForCvDao.findAll());
 	}
 
 	@Override
-	public Result add(ImageForCv imageForCv, MultipartFile imageFile) {
+	public Result add(Image imageForCv, MultipartFile imageFile) {
 		Map<String,String> uploadImage = this.imageUploadService.uploadImageFile(imageFile).getData();
 		imageForCv.setUrl(uploadImage.get("url"));
 		this.imageForCvDao.save(imageForCv);
@@ -44,7 +44,7 @@ public class ImageForCvManager implements ImageForCvService {
 	}
 
 	@Override
-	public Result update(ImageForCv imageForCv) {
+	public Result update(Image imageForCv) {
 		this.imageForCvDao.save(imageForCv);
 		return new SuccessResult("Image has been updated");
 	}
@@ -56,13 +56,13 @@ public class ImageForCvManager implements ImageForCvService {
 	}
 
 	@Override
-	public DataResult<ImageForCv> getById(int id) {
-		return new SuccessDataResult<ImageForCv>(this.imageForCvDao.getById(id));
+	public DataResult<Image> getById(int id) {
+		return new SuccessDataResult<Image>(this.imageForCvDao.getById(id));
 	}
 
 	@Override
-	public DataResult<ImageForCv> getByJobSeekerId(int id) {
-		return new SuccessDataResult<ImageForCv>(this.imageForCvDao.getByJobSeeker_id(id));
+	public DataResult<Image> getByJobSeekerId(int id) {
+		return new SuccessDataResult<Image>(this.imageForCvDao.getByJobSeeker_id(id));
 	}
 
 }

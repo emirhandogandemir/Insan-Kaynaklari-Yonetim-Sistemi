@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name="cv_skills")
-public class SkillForCv extends Base {
+public class Skill extends Base {
 
 
 	

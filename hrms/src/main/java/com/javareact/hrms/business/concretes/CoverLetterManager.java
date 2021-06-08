@@ -5,22 +5,22 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.javareact.hrms.business.abstracts.CoverLetterForCvService;
+import com.javareact.hrms.business.abstracts.CoverLetterService;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.core.utilities.results.SuccessDataResult;
 import com.javareact.hrms.core.utilities.results.SuccessResult;
-import com.javareact.hrms.dataAccess.abstracts.CoverLetterForCvDao;
-import com.javareact.hrms.entities.concretes.CoverLetterForCv;
+import com.javareact.hrms.dataAccess.abstracts.CoverLetterDao;
+import com.javareact.hrms.entities.concretes.CoverLetter;
 
 @Service
-public class CoverLetterForCvManager implements CoverLetterForCvService {
+public class CoverLetterManager implements CoverLetterService {
 
 	
-	private CoverLetterForCvDao coverLetterForCvDao;
+	private CoverLetterDao coverLetterForCvDao;
 	
 	@Autowired
-	public CoverLetterForCvManager(CoverLetterForCvDao coverLetterForCvDao) {
+	public CoverLetterManager(CoverLetterDao coverLetterForCvDao) {
 		super();
 		this.coverLetterForCvDao = coverLetterForCvDao;
 	}
@@ -30,7 +30,7 @@ public class CoverLetterForCvManager implements CoverLetterForCvService {
 
 
 	@Override
-	public Result add(CoverLetterForCv coverLetterForCv) {
+	public Result add(CoverLetter coverLetterForCv) {
 		this.coverLetterForCvDao.save(coverLetterForCv);
 		return new SuccessResult("coverLetterForCv added");
 				
@@ -41,7 +41,7 @@ public class CoverLetterForCvManager implements CoverLetterForCvService {
 
 
 	@Override
-	public Result update(CoverLetterForCv coverLetterForCv) {
+	public Result update(CoverLetter coverLetterForCv) {
 		this.coverLetterForCvDao.save(coverLetterForCv);
 		return new SuccessResult("coverLetterForCv updated");
 	}
@@ -61,8 +61,8 @@ public class CoverLetterForCvManager implements CoverLetterForCvService {
 
 
 	@Override
-	public DataResult<CoverLetterForCv> getById(int id) {
-		return new SuccessDataResult<CoverLetterForCv>(this.coverLetterForCvDao.getById(id));
+	public DataResult<CoverLetter> getById(int id) {
+		return new SuccessDataResult<CoverLetter>(this.coverLetterForCvDao.getById(id));
 	}
 
 
@@ -70,8 +70,8 @@ public class CoverLetterForCvManager implements CoverLetterForCvService {
 
 
 	@Override
-	public DataResult<List<CoverLetterForCv>> getAll() {
-		return new SuccessDataResult<List<CoverLetterForCv>>(this.coverLetterForCvDao.findAll());
+	public DataResult<List<CoverLetter>> getAll() {
+		return new SuccessDataResult<List<CoverLetter>>(this.coverLetterForCvDao.findAll());
 	}
 
 }

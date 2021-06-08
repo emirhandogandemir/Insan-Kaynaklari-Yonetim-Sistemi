@@ -18,13 +18,13 @@ import lombok.NoArgsConstructor;
 @Data
 @Table(name = "cv_cover_letters")
 @NoArgsConstructor
-public class CoverLetterForCv extends Base{
+public class CoverLetter extends Base{
 
 
 	@Column(name = "content")
 	private String content;
 	
-	public CoverLetterForCv(String content, int jobseekerId) {
+	public CoverLetter(String content, int jobseekerId) {
 		super();
 		this.content = content;
 		this.jobSeeker.setId(jobseekerId);
