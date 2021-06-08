@@ -35,3 +35,4 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
 - MicroService [Microservice Mimarisi](https://gokhana.medium.com/microservice-mimarisi-nedir-microservice-mimarisine-giri%C5%9F-948e30cf65b1)
 - Derived Query Methods in Spring Data JPA Repositories [Derived Query Methods](https://www.baeldung.com/spring-data-derived-queries)
 - @Request Param Annotation [Spring @RequestParam Annotation](https://www.baeldung.com/spring-request-param)
+- Spring Cache [Spring Cache](https://www.baeldung.com/spring-cache-tutorial)
