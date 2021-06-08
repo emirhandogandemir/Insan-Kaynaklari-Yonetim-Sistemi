@@ -2,7 +2,10 @@ package com.javareact.hrms.api.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +17,7 @@ import com.javareact.hrms.business.abstracts.EmployerService;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.entities.concretes.Employer;
+import com.javareact.hrms.entities.concretes.Experience;
 
 @RestController
 @RequestMapping("/api/employers")
@@ -30,13 +34,15 @@ public class EmployersController {
 	
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody Employer employer){
-		return this.employerService.add(employer);
+	public ResponseEntity<?> add(@Valid @RequestBody Employer employer){
+		return ResponseEntity.ok(this.employerService.add(employer));
 	}
+	
+	
 //	
 //	@PostMapping("/update")
-//	public Result update(@RequestBody Employer employer){
-//		return this.employerService.update(employer);
+//	public ResponseEntity<?> update(@Valid @RequestBody Employer employer){
+//		return ResponseEntity.ok(this.employerService.update(employer));
 //	}
 //	
 //	@PostMapping("/delete")
