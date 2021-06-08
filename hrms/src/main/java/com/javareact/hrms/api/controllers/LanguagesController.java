@@ -2,7 +2,10 @@ package com.javareact.hrms.api.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +18,7 @@ import com.javareact.hrms.business.abstracts.LanguageService;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.entities.concretes.Language;
+import com.javareact.hrms.entities.concretes.Link;
 
 @RestController
 @RequestMapping("api/languages/")
@@ -30,12 +34,14 @@ public class LanguagesController {
 	}
 	
 	@PostMapping("add")
-	public Result add (@RequestBody Language languageForCv) {
-		return this.languageForCvService.add(languageForCv);
+	public ResponseEntity<?> add (@Valid @RequestBody Language languageForCv) {
+		return ResponseEntity.ok(this.languageForCvService.add(languageForCv));
 	}
+	
+	
 	@PostMapping("update")
-	public Result update(@RequestBody Language languageForCv) {
-		return this.languageForCvService.update(languageForCv);
+	public ResponseEntity<?> update(@Valid @RequestBody Language languageForCv) {
+		return ResponseEntity.ok(this.languageForCvService.update(languageForCv));
 	}
 	
 	@PostMapping("delete")
