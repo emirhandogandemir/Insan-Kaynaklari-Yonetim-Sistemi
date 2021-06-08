@@ -48,8 +48,8 @@ public class CitiesController {
 		}
 }
 //		@PostMapping("/update")
-//		public Result update(@RequestBody City city){
-//			return this.cityService.update(city);
+//		public ResponseEntity<?> update(@Valid @RequestBody City city){
+//			return ResponseEntity.ok(this.cityService.update(city));
 //		}
 	//	
 //		@PostMapping("/delete")
