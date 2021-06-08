@@ -2,7 +2,10 @@ package com.javareact.hrms.api.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +17,7 @@ import com.javareact.hrms.business.abstracts.JobAdvertService;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.entities.concretes.JobAdvert;
+import com.javareact.hrms.entities.concretes.JobPosition;
 
 @RestController
 @RequestMapping("/api/jobadverts")
@@ -31,13 +35,14 @@ public class JobAdvertsController {
 	
 	@PostMapping("/add")
 	
-	public Result add(@RequestBody JobAdvert jobAdvert){
-		return this.jobAdvertService.add(jobAdvert);
+	public ResponseEntity<?> add(@Valid @RequestBody JobAdvert jobAdvert){
+		return ResponseEntity.ok(this.jobAdvertService.add(jobAdvert));
 	}
+	
 //	
 //	@PostMapping("/update")
-//	public Result update(@RequestBody JobAdvert jobAdvert){
-//		return this.jobAdvertService.update(jobAdvert);
+//	public ResponseEntity<?> update(@Valid @RequestBody JobAdvert jobAdvert){
+//		return ResponseEntity.ok(this.jobAdvertService.update(jobAdvert));
 //	}
 //	
 //	@PostMapping("/delete")
