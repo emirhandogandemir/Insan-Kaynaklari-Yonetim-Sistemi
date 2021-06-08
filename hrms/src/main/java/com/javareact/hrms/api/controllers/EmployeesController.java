@@ -2,7 +2,10 @@ package com.javareact.hrms.api.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,13 +17,13 @@ import com.javareact.hrms.business.abstracts.EmployeeService;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.entities.concretes.Employee;
+import com.javareact.hrms.entities.concretes.Employer;
 
 @RestController
 @RequestMapping("/api/employees")
 @CrossOrigin
 public class EmployeesController {
 
-	
 	private EmployeeService employeeService;
 
 	@Autowired
@@ -28,16 +31,15 @@ public class EmployeesController {
 		super();
 		this.employeeService = employeeService;
 	}
-	
 
-@PostMapping("/add")
-	public Result add(@RequestBody Employee employee){
-		return this.employeeService.add(employee);
+	@PostMapping("/add")
+	public ResponseEntity<?> add(@Valid @RequestBody Employee employee) {
+		return ResponseEntity.ok(this.employeeService.add(employee));
 	}
-	
+
 //	@PostMapping("/update")
-//	public Result update(@RequestBody Employee employee){
-//		return this.employeeService.update(employee);
+//	public ResponseEntity<?> update(@Valid @RequestBody Employee employee){
+//		return ResponseEntity.ok(this.employeeService.update(employee));
 //	}
 //	
 //	@PostMapping("/delete")
@@ -49,9 +51,9 @@ public class EmployeesController {
 //	public DataResult<Employee> getById(@PathVariable("id") int id){
 //		return this.employeeService.getById(id);
 //	}
-	
+
 	@GetMapping("/getall")
-	public DataResult<List<Employee>> getAll(){
+	public DataResult<List<Employee>> getAll() {
 		return this.employeeService.getAll();
 	}
 }
