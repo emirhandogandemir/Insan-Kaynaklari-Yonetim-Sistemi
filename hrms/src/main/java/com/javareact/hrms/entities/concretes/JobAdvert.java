@@ -35,14 +35,6 @@ public class JobAdvert {
 	@JsonIgnore
 	private int id;
 
-//	@Column(name = "job_position_id")
-//	private int jobPositionId;
-
-//	@Column(name = "employer_id")
-//	private int employerId;
-
-//	@Column(name = "city_id")
-//	private int cityId;
 
 	@Column(name = "description")
 	@NotNull

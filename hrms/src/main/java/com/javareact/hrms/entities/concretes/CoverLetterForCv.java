@@ -32,6 +32,6 @@ public class CoverLetterForCv extends Base{
 
 	@ManyToOne()
 	@JoinColumn(name = "jobseeker_id")
-	@JsonIgnore
+	//@JsonIgnore
 	private JobSeeker jobSeeker;
 }

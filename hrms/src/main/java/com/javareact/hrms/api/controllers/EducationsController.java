@@ -2,7 +2,10 @@ package com.javareact.hrms.api.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +20,7 @@ import com.javareact.hrms.entities.concretes.EducationForCv;
 
 @RestController
 @RequestMapping("/api/educations/")
+@CrossOrigin
 public class EducationsController {
 		
 	private EducationForCvService educationForCvService;
@@ -27,12 +31,12 @@ public class EducationsController {
 	}
 	
 	@PostMapping("add")
-	public Result add(@RequestBody EducationForCv educaitonForCv) {
+	public Result add(@Valid @RequestBody EducationForCv educaitonForCv) {
 		return this.educationForCvService.add(educaitonForCv);
 	}
 	
 	@PostMapping("update")
-	public Result update(@RequestBody EducationForCv educationForCv) {
+	public Result update( @Valid @RequestBody EducationForCv educationForCv) {
 		return this.educationForCvService.update(educationForCv);
 	}
 	
@@ -45,6 +49,7 @@ public class EducationsController {
 	public DataResult<EducationForCv> getByID(@RequestParam int id){
 		return this.educationForCvService.getById(id);
 	}
+	
 	@GetMapping("getall")
 	public DataResult<List<EducationForCv>> getAll() {
 		return this.educationForCvService.getAll();
