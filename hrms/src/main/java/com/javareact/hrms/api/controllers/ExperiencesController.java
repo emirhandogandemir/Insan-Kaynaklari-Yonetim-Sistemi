@@ -2,7 +2,10 @@ package com.javareact.hrms.api.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +18,7 @@ import com.javareact.hrms.business.abstracts.ExperienceService;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.entities.concretes.Experience;
+import com.javareact.hrms.entities.concretes.JobSeeker;
 
 @RestController
 @RequestMapping("/api/experiences/")
@@ -30,13 +34,15 @@ public class ExperiencesController {
 	}
 	
 	@PostMapping("add")
-	public Result add(@RequestBody Experience experienceForCv) {
-		return this.experienceForCvService.add(experienceForCv);
+	public ResponseEntity<?> add(@Valid @RequestBody Experience experienceForCv) {
+		return ResponseEntity.ok(this.experienceForCvService.add(experienceForCv));
 	}
 	
+	
+	
 	@PostMapping("update")
-	public Result update(@RequestBody Experience experienceForCv) {
-		return this.experienceForCvService.update(experienceForCv);
+	public ResponseEntity<?> update( @Valid @RequestBody Experience experienceForCv) {
+		return ResponseEntity.ok(this.experienceForCvService.update(experienceForCv));
 	}
 	
 	 @PostMapping("delete")
