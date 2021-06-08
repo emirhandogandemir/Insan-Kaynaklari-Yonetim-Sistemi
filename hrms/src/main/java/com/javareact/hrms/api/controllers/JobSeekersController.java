@@ -38,8 +38,8 @@ public class JobSeekersController {
 		}
 //	
 //		@PostMapping("/update")
-//		public Result update(@RequestBody Jobseeker jobseeker){
-//			return this.jobseekerService.update(jobseeker);
+//		public ResponseEntity<?> update(@Valid @RequestBody Jobseeker jobseeker){
+//			return ResponseEntity.ok(this.jobseekerService.update(jobseeker));
 //		}
 //	
 //		@PostMapping("/delete")
