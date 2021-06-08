@@ -2,7 +2,10 @@ package com.javareact.hrms.api.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +17,7 @@ import com.javareact.hrms.business.abstracts.JobPositionService;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.entities.concretes.JobPosition;
+import com.javareact.hrms.entities.concretes.JobSeeker;
 
 @RestController
  @RequestMapping("/api/jobpositions")
@@ -30,13 +34,14 @@ public class JobPositionsController {
 	
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody JobPosition jobPosition){
-		return this.jobPositionService.add(jobPosition);
+	public ResponseEntity<?> add(@Valid @RequestBody JobPosition jobPosition){
+		return ResponseEntity.ok(this.jobPositionService.add(jobPosition));
 	}
+	
 //	
 //	@PostMapping("/update")
-//	public Result update(@RequestBody JobPosition jobPosition){
-//		return this.jobPositionService.update(jobPosition);
+//	public ResponseEntity<?> update(@Valid @RequestBody JobPosition jobPosition){
+//		return ResponseEntity.ok(this.jobPositionService.update(jobPosition));
 //	}
 //	
 //	@PostMapping("/delete")
