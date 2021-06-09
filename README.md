@@ -37,3 +37,4 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
 - @Request Param Annotation [Spring @RequestParam Annotation](https://www.baeldung.com/spring-request-param)
 - Spring Cache [Spring Cache](https://www.baeldung.com/spring-cache-tutorial)
 - Spring FrameWork Ekosistemi [Spring Ekosistemi](https://medium.com/huawei-developers-tr/2-spring-nedir-spring-boot-ve-spring-framework-neden-kullanılır-2cccb8f3a4fa)
+- Hibernate Mapping : [Hibernatte Inheritance Mapping](https://www.baeldung.com/hibernate-inheritance)
