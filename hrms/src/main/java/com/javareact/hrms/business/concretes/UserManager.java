@@ -3,6 +3,7 @@ package com.javareact.hrms.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 import com.javareact.hrms.business.abstracts.UserService;
@@ -25,6 +26,7 @@ private UserDao userDao;
 	}
 
 	@Override
+	@CacheEvict(value="allUsers",allEntries = true)
 	public Result add(User user) {
 		this.userDao.save(user);
 	    return new SuccessResult("User has been added.");
