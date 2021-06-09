@@ -37,11 +37,8 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler", "jobAdverts" })
 public class JobSeeker extends User {
 
-//	@Id
-//	@GeneratedValue
-//	@Column(name= "user_id")
-//	private int userId;
-
+	
+	
 	@Column(name = "first_name")
 	@NotNull(message = "firstname cannot be null")
 	@NotBlank
@@ -63,6 +60,7 @@ public class JobSeeker extends User {
 	@OneToMany(mappedBy = "jobSeeker")
 	@JsonIgnore()
 	private List<Language> languages;
+	
 	
 	@JsonIgnore
 	@OneToOne(mappedBy = "jobSeeker", optional=false, fetch=FetchType.LAZY)

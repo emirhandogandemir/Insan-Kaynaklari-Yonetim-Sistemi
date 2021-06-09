@@ -3,6 +3,7 @@ package com.javareact.hrms.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 import com.javareact.hrms.business.abstracts.JobAdvertService;
@@ -25,6 +26,7 @@ public class JobAdvertManager implements JobAdvertService {
 	}
 
 	@Override
+	@CacheEvict(value="allJobAdverts" ,allEntries=true)
 	public Result add(JobAdvert jobAdvert) {
 		if (!CheckIfNullField(jobAdvert)) {
 			return new ErrorResult("You have entered missing information. Please fill in all fields.");
