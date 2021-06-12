@@ -52,8 +52,8 @@ public class JobSeeker extends User {
 	private String lastName;
 
 	@Column(name = "national_id")
-	@Min(value = 11)
-	@Max(value = 11)
+	
+	@Size(min=11,max=11)
 	private String nationalId;
 
 
@@ -63,7 +63,7 @@ public class JobSeeker extends User {
 	
 	
 	@JsonIgnore
-	@OneToOne(mappedBy = "jobSeeker", optional=false, fetch=FetchType.LAZY)
+	@OneToOne(mappedBy = "jobSeeker")
 	private Image image;
 	
 	@OneToMany(mappedBy="jobSeeker")

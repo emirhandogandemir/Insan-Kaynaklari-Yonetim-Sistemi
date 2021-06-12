@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.javareact.hrms.business.abstracts.ExperienceService;
 import com.javareact.hrms.core.utilities.results.DataResult;
+import com.javareact.hrms.core.utilities.results.ErrorResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.core.utilities.results.SuccessDataResult;
 import com.javareact.hrms.core.utilities.results.SuccessResult;
@@ -62,4 +63,12 @@ public class ExperienceManager implements ExperienceService {
 	return new SuccessDataResult<List<Experience>>(this.experienceForCvDao.getAllByJobSeeker_id(id));
 	}
 
+	///Business Rules
+	private Result startDateGreatThanLeaveDateControl(Experience experience) {
+        if (experience.getStartDate().isAfter(experience.getLeaveDate())) {
+            return new ErrorResult("Start_Date cannot be large from Leave_Date");
+        }
+        return new SuccessResult();
+    }
+	
 }

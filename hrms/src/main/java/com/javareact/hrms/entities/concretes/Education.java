@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
@@ -27,21 +28,19 @@ public class Education extends Base{
 
     @Column(name = "school_name")
     @NotNull
-    @NotBlank
     private String schoolName;
 
     @Column(name = "department_name")
     @NotNull
-    @NotBlank
+
     private String departmentName;
 
     @Column(name = "start_year")
-    @NotNull
-    @NotBlank
-    @Past
+    @Min(1950)
     private int startYear;
 
     @Column(name = "graduation_year",nullable=true)
+    @Min(1950)
     private int graduationYear;
 
     @ManyToOne()

@@ -1,6 +1,7 @@
 package com.javareact.hrms.entities.concretes;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -40,7 +42,7 @@ public class Experience extends Base{
 
     @Column(name = "start_date")
     @NotNull
-    @NotBlank
+    @Past
     private LocalDate startDate;
 
     @Column(name = "leave_date")

@@ -3,7 +3,6 @@ package com.javareact.hrms.core.utilities.imageUpload;
 import java.io.IOException;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,6 +24,7 @@ public class ImageUploadManager implements ImageUploadService {
 				"api_secret", "cQ_FXYzrPxBRbDvCZw5a4JdGSd0"));
 	}
 	
+	@SuppressWarnings("rawtypes")
 	@Override
 	public DataResult<Map> uploadImageFile(MultipartFile imageFile) {
 		try {

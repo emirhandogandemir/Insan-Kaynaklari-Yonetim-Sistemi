@@ -11,4 +11,6 @@ public interface LanguageDao extends JpaRepository<Language, Integer> {
 	Language getById(int id);
 	List<Language> getAllByJobSeeker_id(int id);
 	
+	Language findUserByLanguage(String language);
+	
 }

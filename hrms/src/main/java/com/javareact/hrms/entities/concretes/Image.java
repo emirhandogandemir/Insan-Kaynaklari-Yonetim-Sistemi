@@ -1,6 +1,7 @@
 package com.javareact.hrms.entities.concretes;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,9 +32,9 @@ public class Image extends Base{
     private String url;
 
     @Column(name = "uploaded_at" , columnDefinition = "Date default CURRENT_DATE")
-    private LocalDate uploadedAt;
+    private LocalDateTime uploadedAt;
 
-    @OneToOne(optional=false,fetch=FetchType.LAZY)
+    @OneToOne()
     //@JsonIgnore()
     @JoinColumn(name = "jobseeker_id",referencedColumnName="user_id")
     private JobSeeker jobSeeker;

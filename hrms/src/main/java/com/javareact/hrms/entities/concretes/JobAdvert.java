@@ -84,4 +84,12 @@ public class JobAdvert {
 	@ManyToOne
 	@JoinColumn(name = "city_id")
 	private City city;
+	
+	@ManyToOne
+	@JoinColumn(name="work_hour_id")
+	private WorkHour workHour;
+	
+	@ManyToOne
+	@JoinColumn(name="work_type_id")
+	private WorkType workType;
 }
