@@ -8,6 +8,8 @@ import com.javareact.hrms.entities.concretes.Education;
 
 public interface EducationDao extends JpaRepository<Education, Integer> {
 Education getById(int id);
+
 List<Education> getAllByJobSeeker_idOrderByGraduationYearDesc(int id);
+
 List<Education> getAllByJobSeeker_id(int id);
 }

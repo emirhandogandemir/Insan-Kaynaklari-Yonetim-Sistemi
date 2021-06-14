@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -33,6 +34,7 @@ public class WorkHour {
 	private String workHour;
 	
 	@OneToMany(mappedBy="workHour")
+	@JsonIgnore
 	private List<JobAdvert> jobAdverts;
 	
 }

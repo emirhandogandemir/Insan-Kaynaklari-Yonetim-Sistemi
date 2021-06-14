@@ -19,6 +19,7 @@ import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.entities.concretes.JobAdvert;
 import com.javareact.hrms.entities.concretes.JobPosition;
+import com.javareact.hrms.entities.dtos.JobAdvertDto;
 
 @RestController
 @RequestMapping("/api/jobadverts")

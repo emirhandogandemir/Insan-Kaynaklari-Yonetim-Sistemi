@@ -6,6 +6,7 @@ import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.entities.concretes.JobAdvert;
 
+
 public interface JobAdvertService {
 	Result add(JobAdvert jobAdvert);
 	Result update(JobAdvert jobAdvert);

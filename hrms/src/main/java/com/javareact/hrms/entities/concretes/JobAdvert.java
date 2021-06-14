@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
@@ -53,11 +54,9 @@ public class JobAdvert {
 
 	@Column(name = "deadline")
 	@Future
-	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDateTime deadline;
 
 	@Column(name = "published_at")
-	//@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDateTime publishedAt;
 
 	@Column(name = "created_at", columnDefinition = "Date default CURRENT_DATE")
@@ -67,11 +66,9 @@ public class JobAdvert {
 	@Column(name = "is_open", columnDefinition = "boolean default true")
 	private boolean isOpen = true;
 
-	@Column(name = "is_active", columnDefinition = "boolean default true")
-	private boolean isActive = true;
+	@Column(name = "is_active", columnDefinition = "boolean default false")
+	private boolean isActive = false;
 
-	@Column(name = "is_deleted", columnDefinition = "boolean default false")
-	private boolean isDeleted = false;
 
 	@ManyToOne
 	@JoinColumn(name = "job_position_id")
@@ -92,4 +89,8 @@ public class JobAdvert {
 	@ManyToOne
 	@JoinColumn(name="work_type_id")
 	private WorkType workType;
+	
+	@OneToOne(mappedBy="jobAdvert")
+	@JsonIgnore
+	private JobAdvertConfirmation jobAdvertConfirmation;
 }
