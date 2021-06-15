@@ -32,7 +32,7 @@ public class Image extends Base{
     private String url;
 
     @Column(name = "uploaded_at" , columnDefinition = "Date default CURRENT_DATE")
-    private LocalDateTime uploadedAt;
+    private LocalDate uploadedAt;
 
     @OneToOne()
     //@JsonIgnore()

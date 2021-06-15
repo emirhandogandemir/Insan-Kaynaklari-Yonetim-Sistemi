@@ -1,6 +1,7 @@
 package com.javareact.hrms.entities.dtos;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,15 +25,12 @@ public class JobAdvertDto {
 	
 	private int openPositionCount;
 	
-	private LocalDateTime deadLine;
-	
-	private LocalDateTime publishedAt;
-	
+	private LocalDate deadLine;
+
 	private boolean isActive;
 	
+	private int workTypeId;
 	
-	private int workType;
-	
-	private int workTime;
+	private int workHourId;
 	
 }

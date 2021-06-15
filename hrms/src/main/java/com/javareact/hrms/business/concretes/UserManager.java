@@ -31,23 +31,23 @@ private UserDao userDao;
 		this.userDao.save(user);
 	    return new SuccessResult("User has been added.");
 	}
-//
-//	@Override
-//	public Result update(User user) {
-//		this.userDao.save(user);
-//      return new SuccessResult("User has been updated.");
-//	}
-//
-//	@Override
-//	public Result delete(int id) {
-//		this.userDao.deleteById(id);
-//      return new SuccessResult("User has been deleted.");
-//	}
-//
-//	@Override
-//	public DataResult<User> getById(int id) {
-//		return new SuccessDataResult<User>(this.userDao.getOne(id));
-//	}
+
+	@Override
+	public Result update(User user) {
+		this.userDao.save(user);
+      return new SuccessResult("User has been updated.");
+	}
+
+	@Override
+	public Result delete(int id) {
+		this.userDao.deleteById(id);
+      return new SuccessResult("User has been deleted.");
+	}
+
+	@Override
+	public DataResult<User> getById(int id) {
+		return new SuccessDataResult<User>(this.userDao.getOne(id));
+	}
 
 	@Override
 	public DataResult<List<User>> getAll() {

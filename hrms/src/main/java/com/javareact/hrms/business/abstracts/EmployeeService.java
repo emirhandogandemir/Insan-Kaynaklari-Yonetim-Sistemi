@@ -11,13 +11,13 @@ import com.javareact.hrms.entities.concretes.Employee;
 public interface EmployeeService {
 	
 	
-//	Result add(Employee employee);
-//	Result update(Employee employee);
-//	Result delete(int id);
-//	DataResult<Employee> getById(int id);
+	Result add(Employee employee);
+	Result update(Employee employee);
+	Result delete(int id);
+	DataResult<Employee> getById(int id);
 	
 	DataResult<List<Employee>> getAll();
 
-	Result add(Employee employee);
+
 	
 }

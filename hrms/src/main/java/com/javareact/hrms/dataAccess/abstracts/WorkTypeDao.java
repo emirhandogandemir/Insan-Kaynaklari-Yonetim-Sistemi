@@ -7,9 +7,9 @@ import com.javareact.hrms.entities.concretes.WorkType;
 
 public interface WorkTypeDao extends JpaRepository<WorkType, Integer> {
 	
-WorkHour getById(int id);
+WorkType getById(int id);
 
-WorkHour getByWorkType(String workType);
+WorkType getByWorkType(String workType);
 
 
 

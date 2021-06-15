@@ -33,23 +33,23 @@ private JobPositionDao jobPositionDao;
 		this.jobPositionDao.save(jobPosition);
 	    return new SuccessResult("Job position has been added.");
 	}
-//
-//	@Override
-//	public Result update(JobPosition jobPosition) {
-//		this.jobPositionDao.save(jobPosition);
-//      return new SuccessResult("Job position has been updated.");
-//	}
-//
-//	@Override
-//	public Result delete(int id) {
-//		this.jobPositionDao.deleteById(id);
-//      return new SuccessResult("Job position has been deleted.");
-//	}
-//
-//	@Override
-//	public DataResult<JobPosition> getById(int id) {
-//		return new SuccessDataResult<JobPosition>(this.jobPositionDao.getOne(id));
-//	}
+
+	@Override
+	public Result update(JobPosition jobPosition) {
+		this.jobPositionDao.save(jobPosition);
+      return new SuccessResult("Job position has been updated.");
+	}
+
+	@Override
+	public Result delete(int id) {
+		this.jobPositionDao.deleteById(id);
+      return new SuccessResult("Job position has been deleted.");
+	}
+
+	@Override
+	public DataResult<JobPosition> getById(int id) {
+		return new SuccessDataResult<JobPosition>(this.jobPositionDao.getOne(id));
+	}
 
 	@Override
 	public DataResult<List<JobPosition>> getAll() {

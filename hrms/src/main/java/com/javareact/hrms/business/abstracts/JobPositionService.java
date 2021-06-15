@@ -8,9 +8,9 @@ import com.javareact.hrms.entities.concretes.JobPosition;
 
 public interface JobPositionService {
 
-//Result update(JobPosition jobPosition);
-//Result delete(int id);
-//DataResult<JobPosition> getById(int id);
+Result update(JobPosition jobPosition);
+Result delete(int id);
+DataResult<JobPosition> getById(int id);
 
 Result add(JobPosition jobPosition);
 DataResult<List <JobPosition>> getAll();

@@ -9,6 +9,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,28 +38,28 @@ public class JobAdvertsController {
 	
 	@PostMapping("/add")
 	
-	public ResponseEntity<?> add(@Valid @RequestBody JobAdvert jobAdvert){
+	public ResponseEntity<?> add(@Valid @RequestBody JobAdvertDto jobAdvert){
 		return ResponseEntity.ok(this.jobAdvertService.add(jobAdvert));
 	}
 	
-//	
-//	@PostMapping("/update")
-//	public ResponseEntity<?> update(@Valid @RequestBody JobAdvert jobAdvert){
-//		return ResponseEntity.ok(this.jobAdvertService.update(jobAdvert));
-//	}
-//	
-//	@PostMapping("/delete")
-//	public Result delete(@PathVariable("id") int id){
-//		return this.jobAdvertService.delete(id);
-//	}
-//	
-//	@GetMapping("/getbyid")
-//	public DataResult<JobAdvert> getById(@PathVariable("id") int id){
-//		return this.jobAdvertService.getById(id);
-//	}
+	
+	@PostMapping("/update")
+	public ResponseEntity<?> update(@Valid @RequestBody JobAdvert jobAdvert){
+		return ResponseEntity.ok(this.jobAdvertService.update(jobAdvert));
+	}
+	
+	@PostMapping("/delete")
+	public Result delete(@PathVariable("id") int id){
+		return this.jobAdvertService.delete(id);
+	}
+	
+	@GetMapping("/getbyid")
+	public DataResult<JobAdvert> getById(@PathVariable("id") int id){
+		return this.jobAdvertService.getById(id);
+	}
 	
 	@GetMapping("/getAll")
-	@Cacheable("allJobAdverts")
+	//@Cacheable("allJobAdverts")
 	public DataResult<List<JobAdvert>> getAll(){		
 		return this.jobAdvertService.getAll();
 	}

@@ -49,19 +49,15 @@ public class JobAdvert {
 	private int salaryMax;
 
 	@Column(name = "open_position_count")
-	@Min(value=1)
 	private int openPositionCount;
 
 	@Column(name = "deadline")
 	@Future
-	private LocalDateTime deadline;
+	private LocalDate deadline;
 
-	@Column(name = "published_at")
-	private LocalDateTime publishedAt;
+	@Column(name = "published_at",columnDefinition = "Date default CURRENT_DATE")
+	private LocalDate publishedAt= LocalDate.now();
 
-	@Column(name = "created_at", columnDefinition = "Date default CURRENT_DATE")
-	@JsonIgnore
-	private LocalDate createdAt = LocalDate.now();
 
 	@Column(name = "is_open", columnDefinition = "boolean default true")
 	private boolean isOpen = true;
@@ -70,13 +66,14 @@ public class JobAdvert {
 	private boolean isActive = false;
 
 
-	@ManyToOne
-	@JoinColumn(name = "job_position_id")
-	private JobPosition jobPosition;
 
 	@ManyToOne
 	@JoinColumn(name = "employer_id")
 	private Employer employer;
+	
+	@ManyToOne
+	@JoinColumn(name = "job_position_id")
+	private JobPosition jobPosition;
 
 	@ManyToOne
 	@JoinColumn(name = "city_id")

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,20 +38,20 @@ public class EmployeesController {
 		return ResponseEntity.ok(this.employeeService.add(employee));
 	}
 
-//	@PostMapping("/update")
-//	public ResponseEntity<?> update(@Valid @RequestBody Employee employee){
-//		return ResponseEntity.ok(this.employeeService.update(employee));
-//	}
-//	
-//	@PostMapping("/delete")
-//	public Result delete(@PathVariable("id") int id){
-//		return this.employeeService.delete(id);
-//	}
-//	
-//	@GetMapping("/getbyid")
-//	public DataResult<Employee> getById(@PathVariable("id") int id){
-//		return this.employeeService.getById(id);
-//	}
+	@PostMapping("/update")
+	public ResponseEntity<?> update(@Valid @RequestBody Employee employee){
+		return ResponseEntity.ok(this.employeeService.update(employee));
+	}
+	
+	@PostMapping("/delete")
+	public Result delete(@PathVariable("id") int id){
+		return this.employeeService.delete(id);
+	}
+	
+	@GetMapping("/getbyid")
+	public DataResult<Employee> getById(@PathVariable("id") int id){
+		return this.employeeService.getById(id);
+	}
 
 	@GetMapping("/getall")
 	public DataResult<List<Employee>> getAll() {

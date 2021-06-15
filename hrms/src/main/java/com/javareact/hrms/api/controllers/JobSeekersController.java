@@ -38,17 +38,17 @@ public class JobSeekersController {
 		return ResponseEntity.ok(this.jobseekerService.add(jobseeker));
 	}
 
-//	
-//		@PostMapping("/update")
-//		public ResponseEntity<?> update(@Valid @RequestBody Jobseeker jobseeker){
-//			return ResponseEntity.ok(this.jobseekerService.update(jobseeker));
-//		}
-//	
-//		@PostMapping("/delete")
-//		public Result delete(@PathVariable("id") int id){
-//			return this.jobseekerService.delete(id);
-//		}
-//	
+	
+		@PostMapping("/update")
+		public ResponseEntity<?> update(@Valid @RequestBody JobSeeker jobseeker){
+			return ResponseEntity.ok(this.jobseekerService.update(jobseeker));
+		}
+	
+		@PostMapping("/delete")
+		public Result delete(@PathVariable("id") int id){
+			return this.jobseekerService.delete(id);
+		}
+	
 	@GetMapping("/getbyid")
 	public DataResult<JobSeeker> getById(@RequestParam int id) {
 		return this.jobseekerService.getById(id);

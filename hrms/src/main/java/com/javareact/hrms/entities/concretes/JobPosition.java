@@ -41,7 +41,7 @@ public class JobPosition {
 	
 	@Column(name= "created_at", columnDefinition = "Date default CURRENT_DATE")
 	@JsonIgnore
-	private LocalDateTime createdDate = LocalDateTime.now();
+	private LocalDate createdDate = LocalDate.now();
 	
 	@Column(name= "is_active", columnDefinition = "boolean default true")
 	private boolean isActive = true;

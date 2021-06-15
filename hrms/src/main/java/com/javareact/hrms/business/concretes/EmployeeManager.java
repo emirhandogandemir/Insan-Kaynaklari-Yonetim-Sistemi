@@ -31,23 +31,23 @@ public class EmployeeManager implements EmployeeService {
 		this.employeeDao.save(employee);
       return new SuccessResult("Employee has been added.");		
 	}
-//
-//	@Override
-//	public Result update(Employee employee) {
-//		this.employeeDao.save(employee);
-//      return new SuccessResult("Employee has been updated.");
-//	}
-//
-//	@Override
-//	public Result delete(int id) {
-//		this.employeeDao.deleteById(id);
-//      return new SuccessResult("Employee has been deleted.");
-//	}
-//
-//	@Override
-//	public DataResult<Employee> getById(int id) {
-//		return new SuccessDataResult<Employee>(this.employeeDao.getOne(id));
-//	}
+
+	@Override
+	public Result update(Employee employee) {
+		this.employeeDao.save(employee);
+      return new SuccessResult("Employee has been updated.");
+	}
+
+	@Override
+	public Result delete(int id) {
+		this.employeeDao.deleteById(id);
+      return new SuccessResult("Employee has been deleted.");
+	}
+
+	@Override
+	public DataResult<Employee> getById(int id) {
+		return new SuccessDataResult<Employee>(this.employeeDao.getOne(id));
+	}
 
 	@Override
 	public DataResult<List<Employee>> getAll() {
