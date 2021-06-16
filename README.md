@@ -4,10 +4,15 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
          ![HRMS](https://user-images.githubusercontent.com/74687192/120178589-566b3b00-c212-11eb-9617-69f8a5e6031c.png)
 ---
 ## Kullanılan Teknolojiler 
+---
 - `Lombok`
 - <img src="https://user-images.githubusercontent.com/74687192/120121939-ba5c1800-c1ae-11eb-8327-67e22b7c7664.png" width="15%" height="15%" />
+---
+
+---
 - `Hibernate`
 - <img src="https://user-images.githubusercontent.com/74687192/120121937-b9c38180-c1ae-11eb-8b7f-2e4ad3197598.jpg" width="10%" height="10%" />
+---
 
 - `SpringDataJpa`
 - <img src="https://user-images.githubusercontent.com/74687192/120121942-bb8d4500-c1ae-11eb-8234-838d69081b18.png" width="15%" height="15%" />
