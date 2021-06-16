@@ -20,6 +20,7 @@ import com.javareact.hrms.dataAccess.abstracts.JobPositionDao;
 import com.javareact.hrms.dataAccess.abstracts.WorkHourDao;
 import com.javareact.hrms.dataAccess.abstracts.WorkTypeDao;
 import com.javareact.hrms.entities.concretes.JobAdvert;
+import com.javareact.hrms.entities.concretes.JobAdvertConfirmation;
 import com.javareact.hrms.entities.dtos.JobAdvertDto;
 @Service
 public class JobAdvertManager implements JobAdvertService {
@@ -53,6 +54,8 @@ public class JobAdvertManager implements JobAdvertService {
 	@Override
 	//@CacheEvict(value="allJobAdverts" ,allEntries=true)
 	public Result add(JobAdvertDto jobAdvertDto) {
+		
+		// Dao , business, frontend = ?
 	
 		JobAdvert jobAdvert = new JobAdvert();
 		jobAdvert.setCity(this.cityDao.getById(jobAdvertDto.getCityId()));
@@ -68,6 +71,8 @@ public class JobAdvertManager implements JobAdvertService {
 	
 		
 		this.jobAdvertDao.save(jobAdvert);
+		
+		//JobAdvertConfirmation jobAdvertConfirmation = new JobAdvertConfirmation();
 		return new SuccessResult("başarı ile eklendi");
 		
 	}
@@ -96,21 +101,6 @@ public class JobAdvertManager implements JobAdvertService {
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAll());
 	}
 
-	@Override
-	public Result changeOpenToClose(int id) {
-		if (getById(id) == null) {
-			return new ErrorResult("There is no such job advert");
-
-		}
-		if (getById(id).getData().isOpen() == false) {
-			return new ErrorResult("There job advert is already closed.");
-		}
-
-		JobAdvert jobAdvert = getById(id).getData();
-		jobAdvert.setOpen(false);
-		update(jobAdvert);
-		return new SuccessResult("Job advert has been successfully closed.");
-	}
 
 	@Override
 	public DataResult<List<JobAdvert>> getAllOpenJobAdvertList() {
@@ -133,6 +123,52 @@ public class JobAdvertManager implements JobAdvertService {
 			return true;
 		}
 		return false;
+	}
+
+
+
+	@Override
+	public DataResult<List<JobAdvert>> getAllByIsActiveByEmployee() {
+	// BURASI AÇIK İŞ İLANLARI VE DOĞRULANMIŞ İŞ İLANLARININ GÖZÜKTÜĞÜ KISIM
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllByIsActiveByEmployee()); 
+	}
+
+
+
+	@Override
+	public DataResult<List<JobAdvert>> getAllByIsActiveByEmployee_False() {
+		// Açık olan iş ilanlarını admin görecek sadece kendi sisteminden onaylamak için
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllByIsActiveByEmployee_False()) ;
+	}
+
+
+
+	@Override
+	public Result changeIsActiveByEmployee(int jobAdvertId) {
+		// sadece trueya çekmek için 
+	JobAdvert jobAdvertIsActiveEmployee= this.jobAdvertDao.getById(jobAdvertId);
+	jobAdvertIsActiveEmployee.setActive(!jobAdvertIsActiveEmployee.isActive());
+	this.jobAdvertDao.save(jobAdvertIsActiveEmployee);
+	return new SuccessResult("İş ilanının admin tarafından aktifliği değiştirildi");
+	}
+
+
+
+	@Override
+	public Result changeIsOpenByEmployer(int jobAdvertId) {
+		// İş verenin aktiflik değiştireceği
+		JobAdvert jobAdvertToChangeIsOpen =this.jobAdvertDao.getById(jobAdvertId);
+		jobAdvertToChangeIsOpen.setOpen(!jobAdvertToChangeIsOpen.isOpen());
+		this.jobAdvertDao.save(jobAdvertToChangeIsOpen);
+		return new SuccessResult("İş ilanının iş veren tarafından tarafından aktifliği değiştirildi");
+	}
+
+
+
+	@Override
+	public DataResult<List<JobAdvert>> getAllByEmployerId(int employerId) {
+		
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllByEmployerId(employerId),"Employer Idye göre getirildi");
 	}
 
 }

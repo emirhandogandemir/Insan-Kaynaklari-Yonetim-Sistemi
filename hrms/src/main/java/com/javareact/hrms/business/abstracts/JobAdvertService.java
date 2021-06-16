@@ -12,10 +12,20 @@ public interface JobAdvertService {
 	Result add(JobAdvertDto jobAdvertDto);
 	Result update(JobAdvert jobAdvert);
 	Result delete(int id);
-	Result changeOpenToClose(int id);
+	
 	DataResult<JobAdvert> getById(int id);	
 	DataResult<List<JobAdvert>> getAll();
 	DataResult<List<JobAdvert>> getAllOpenJobAdvertList();
 	DataResult<List<JobAdvert>> findAllByOrderByPublishedAt();
 	DataResult<List<JobAdvert>> getAllOpenJobAdvertByEmployer(int id);
+	
+	DataResult<List<JobAdvert>> getAllByIsActiveByEmployee();// iş arayan
+	
+	DataResult<List<JobAdvert>> getAllByIsActiveByEmployee_False();// admin
+	
+	DataResult<List<JobAdvert>> getAllByEmployerId(int employerId);
+	Result changeIsActiveByEmployee(int jobAdvertId);
+	
+	Result changeIsOpenByEmployer(int jobAdvertId);
+	
 }

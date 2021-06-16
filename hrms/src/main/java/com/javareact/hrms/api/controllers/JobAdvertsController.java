@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javareact.hrms.business.abstracts.JobAdvertService;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
+import com.javareact.hrms.core.utilities.results.SuccessDataResult;
 import com.javareact.hrms.entities.concretes.JobAdvert;
 import com.javareact.hrms.entities.concretes.JobPosition;
 import com.javareact.hrms.entities.dtos.JobAdvertDto;
@@ -64,23 +66,46 @@ public class JobAdvertsController {
 		return this.jobAdvertService.getAll();
 	}
 	
-	@PostMapping("/changeOpenToClose")
-	public Result changeOpenToClose(int id){
-		return this.jobAdvertService.changeOpenToClose(id);
+	//onaylama
+	// 	-----------------------
+	@PostMapping("/changeactivestatus")
+	public Result changeIsActiveByEmployee(@RequestParam int id) {
+		return this.jobAdvertService.changeIsActiveByEmployee(id);
+	}
+
+	@PostMapping("/changeopenstatus")
+	public Result changeIsOpenByEmployer(@RequestParam int id) {
+		return this.jobAdvertService.changeIsOpenByEmployer(id);
 	}
 	
-	@GetMapping("/getAllOpenJobAdvertList")
-	public DataResult<List<JobAdvert>> getAllOpenJobAdvertList(){
-		return this.jobAdvertService.getAllOpenJobAdvertList();
+	@GetMapping("/getAllActiveAndOpenJobAdverts")
+	public DataResult<List<JobAdvert>> getAllByIsActiveByEmployee(){
+		return this.jobAdvertService.getAllByIsActiveByEmployee();
 	}
 	
-	@GetMapping("/findAllByOrderByPublishedAt")
-	public DataResult<List<JobAdvert>> findAllByOrderByPublishedAt(){
-		return this.jobAdvertService.findAllByOrderByPublishedAt();
+	@GetMapping("/getAllOpenJobAdvertsAndIsActiveFalse")
+	public DataResult<List<JobAdvert>> getAllByIsActiveByEmployee_False(){
+		return this.jobAdvertService.getAllByIsActiveByEmployee_False();
 	}
 	
-	@GetMapping("/getAllOpenJobAdvertByEmployer")
-	public DataResult<List<JobAdvert>> getAllOpenJobAdvertByEmployer(int id){
-		return this.jobAdvertService.getAllOpenJobAdvertByEmployer(id);
+	@GetMapping("/getAllByEmployerId")
+	public DataResult<List<JobAdvert>> getAllByEmployerId(@RequestParam int id){
+		return this.jobAdvertService.getAllByEmployerId(id);
 	}
+	
+//	---------
+	//@GetMapping("/getAllOpenJobAdvertList")
+	//public DataResult<List<JobAdvert>> getAllOpenJobAdvertList(){
+	//	return this.jobAdvertService.getAllOpenJobAdvertList();
+	//}
+	
+	//@GetMapping("/findAllByOrderByPublishedAt")
+	//public DataResult<List<JobAdvert>> findAllByOrderByPublishedAt(){
+	//	return this.jobAdvertService.findAllByOrderByPublishedAt();
+	//}
+	
+	//@GetMapping("/getAllOpenJobAdvertByEmployer")
+	//public DataResult<List<JobAdvert>> getAllOpenJobAdvertByEmployer(int id){
+	//	return this.jobAdvertService.getAllOpenJobAdvertByEmployer(id);
+	//}
 }

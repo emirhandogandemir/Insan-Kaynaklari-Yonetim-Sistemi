@@ -33,7 +33,6 @@ public class JobAdvert {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	@JsonIgnore
 	private int id;
 
 
