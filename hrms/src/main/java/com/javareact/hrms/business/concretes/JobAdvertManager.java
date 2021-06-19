@@ -51,7 +51,7 @@ public class JobAdvertManager implements JobAdvertService {
 
 
 	@Override
-	//@CacheEvict(value="allJobAdverts" ,allEntries=true)
+	@CacheEvict(value="allJobAdverts" ,allEntries=true)
 	public Result add(JobAdvertDto jobAdvertDto) {
 		
 		// Dao , business, frontend = ?

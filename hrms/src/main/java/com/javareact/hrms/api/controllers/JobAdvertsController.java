@@ -61,8 +61,9 @@ public class JobAdvertsController {
 	}
 	
 	@GetMapping("/getAll")
-	//@Cacheable("allJobAdverts")
-	public DataResult<List<JobAdvert>> getAll(){		
+	@Cacheable("allJobAdverts")
+	public DataResult<List<JobAdvert>> getAll(){	
+		System.out.println(">>>inside getJobAdverts... ");
 		return this.jobAdvertService.getAll();
 	}
 	
@@ -90,6 +91,7 @@ public class JobAdvertsController {
 	
 	@GetMapping("/getAllByEmployerId")
 	public DataResult<List<JobAdvert>> getAllByEmployerId(@RequestParam int id){
+		//System.out.println(">>>inside getJobAdvertsEmployerId... ");
 		return this.jobAdvertService.getAllByEmployerId(id);
 	}
 	

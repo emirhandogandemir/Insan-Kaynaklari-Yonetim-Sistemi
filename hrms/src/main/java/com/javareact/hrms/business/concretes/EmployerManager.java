@@ -3,6 +3,7 @@ package com.javareact.hrms.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 import com.javareact.hrms.business.abstracts.EmployerService;
 import com.javareact.hrms.core.utilities.results.DataResult;
@@ -26,6 +27,7 @@ public class EmployerManager implements EmployerService {
 	}
 
 	@Override
+	@CacheEvict(value="allEmployers",allEntries=true)
 	public Result add(Employer employer) {
 		this.employerDao.save(employer);
         return new SuccessResult("Employer has been added.");

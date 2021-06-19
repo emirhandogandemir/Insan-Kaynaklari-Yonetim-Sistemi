@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -58,6 +59,7 @@ public class EmployersController {
 	}
 	
 	@GetMapping("/getall")
+	@Cacheable("allEmployers")
 	public DataResult<List<Employer>> getAll(){
 		return this.employerService.getAll();
 	}

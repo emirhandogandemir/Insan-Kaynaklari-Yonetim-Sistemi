@@ -73,7 +73,7 @@ public class AuthManager implements AuthService {
 		employerService.add(employer);
 		String code = verificationService.sendCode();
 		verificationCodeRecord(code, employer.getId(), employer.getEmail());
-		emailSenderService.sendSimpleEmail("Ofgadut00@gmail.com",code, "Hrms Project Verification");
+		emailSenderService.sendSimpleEmail("emirhandgndmr51@gmail.com","Doğrulama kodunuz : "+code, "Hrms Project Verification");
 		return new SuccessResult("Registration has been successfully completed");
 
 	}
@@ -105,7 +105,7 @@ public class AuthManager implements AuthService {
 		jobseekerService.add(jobseeker);
 		String code = verificationService.sendCode();
 		verificationCodeRecord(code, jobseeker.getId(), jobseeker.getEmail());
-		emailSenderService.sendSimpleEmail("emirhandgndmr@mail.com.tr",code, "Hrms Project Verification");
+		emailSenderService.sendSimpleEmail("emirhandgndmr@mail.com.tr","Doğrulama Kodunuz : "+code, "Hrms Project Verification");
 		return new SuccessResult("Registration has been successfully completed");
 	}
 

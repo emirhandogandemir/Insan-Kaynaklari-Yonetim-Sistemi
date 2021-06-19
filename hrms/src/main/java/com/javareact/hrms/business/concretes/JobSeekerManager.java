@@ -3,6 +3,7 @@ package com.javareact.hrms.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 import com.javareact.hrms.business.abstracts.EducationService;
@@ -45,6 +46,7 @@ public class JobSeekerManager implements JobSeekerService {
 	}
 
 	@Override
+	@CacheEvict(value="allJobSeekers",allEntries=true)
 	public Result add(JobSeeker jobseeker) {
 		this.jobseekerDao.save(jobseeker);
 

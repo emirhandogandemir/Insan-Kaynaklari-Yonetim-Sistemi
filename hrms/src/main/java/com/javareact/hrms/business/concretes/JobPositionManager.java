@@ -3,6 +3,7 @@ package com.javareact.hrms.business.concretes;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 import com.javareact.hrms.business.abstracts.JobPositionService;
@@ -26,6 +27,7 @@ private JobPositionDao jobPositionDao;
 	}
 
 	@Override
+	@CacheEvict(value="allJobPositions",allEntries=true)
 	public Result add(JobPosition jobPosition) {
 		if(getJobByTitle(jobPosition.getJobTitle()).getData() != null){
 			return new ErrorResult( jobPosition.getJobTitle() + " already exists");
