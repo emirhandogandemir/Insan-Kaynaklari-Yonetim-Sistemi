@@ -36,7 +36,7 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
 ![swagger](https://user-images.githubusercontent.com/74687192/120887592-817fd100-c5fc-11eb-95fa-408f50937e98.PNG)
    
 ### Spring Mail kullanımından sonra .Admin tarafından , sisteme kayıt olan Maile Java UUID kullanarak gönderdiğim mail içeriği
-    
+   ![springMaill](https://user-images.githubusercontent.com/74687192/122636751-91ff7380-d0f3-11eb-8486-030c75df123d.PNG)
 ## Projemİ Geliştirirken Faydalandığım linkler 
 ---
 - Genel olarak :[Baeldung](https://www.baeldung.com)
