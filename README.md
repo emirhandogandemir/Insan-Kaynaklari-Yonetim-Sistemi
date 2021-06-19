@@ -30,12 +30,20 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
 - `Cloudinary`
 - <img src="https://user-images.githubusercontent.com/74687192/120887527-1504d200-c5fc-11eb-958f-79266c3a93fa.png" width="15%" height="15%" />
 ---
+- `Spring Cache`
+- <img src="https://user-images.githubusercontent.com/74687192/122648935-035f1680-d134-11eb-8a5f-df10d8c589c0.png" width="15%" height="15%" />
+---
+- `Spring Mail`
+- <img src="https://user-images.githubusercontent.com/74687192/122648846-aa8f7e00-d133-11eb-9cf0-36a81bcfcf2d.png" width="15%" height="15%" />
+
+
 
 ### Swagger Tarafında Anlık Görüntü
     
 ![swagger](https://user-images.githubusercontent.com/74687192/120887592-817fd100-c5fc-11eb-95fa-408f50937e98.PNG)
-  
-    
+   
+### Spring Mail kullanımından sonra .Admin tarafından , sisteme kayıt olan Maile Java UUID kullanarak gönderdiğim doğrulama kodu içeriği
+   ![springMaill](https://user-images.githubusercontent.com/74687192/122636751-91ff7380-d0f3-11eb-8486-030c75df123d.PNG)
 ## Projemİ Geliştirirken Faydalandığım linkler 
 ---
 - Genel olarak :[Baeldung](https://www.baeldung.com)
@@ -49,3 +57,4 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
 - Spring Cache [Spring Cache](https://www.baeldung.com/spring-cache-tutorial)
 - Spring FrameWork Ekosistemi [Spring Ekosistemi](https://medium.com/huawei-developers-tr/2-spring-nedir-spring-boot-ve-spring-framework-neden-kullanılır-2cccb8f3a4fa)
 - Hibernate Mapping : [Hibernatte Inheritance Mapping](https://www.baeldung.com/hibernate-inheritance)
+- Spring mail : [Spring mail](https://www.baeldung.com/spring-email)
