@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javareact.hrms.business.abstracts.EmployerService;
@@ -52,7 +53,7 @@ public class EmployersController {
 	}
 	
 	@GetMapping("/getbyid")
-	public DataResult<Employer> getById(@PathVariable("id") int id){
+	public DataResult<Employer> getById(@RequestParam int id){
 		return this.employerService.getById(id);
 	}
 	

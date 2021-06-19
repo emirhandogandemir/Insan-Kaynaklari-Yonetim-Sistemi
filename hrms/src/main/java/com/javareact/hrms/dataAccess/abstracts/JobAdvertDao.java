@@ -9,6 +9,10 @@ import com.javareact.hrms.entities.concretes.JobAdvert;
 
 public interface JobAdvertDao extends JpaRepository<JobAdvert, Integer> {
 
+	
+	JobAdvert findById(int id);
+
+	
 	@Query("From JobAdvert where isOpen = true")// iş veren tarafından eklenilen sadece 
 	List<JobAdvert> getAllOpenJobAdvertList();
 	
@@ -25,13 +29,8 @@ public interface JobAdvertDao extends JpaRepository<JobAdvert, Integer> {
 	@Query("From JobAdvert where is_active=false And is_open=true Order By published_at DESC")//active edilmemiş ADMİN GÖRÜCEK
 	List <JobAdvert> getAllByIsActiveByEmployee_False();
 	
-	 
-	JobAdvert getById(int id);
-	
 	
 	List<JobAdvert> getAllByEmployerId(int employerId);
 	
 	
-	JobAdvert findById(int id);
-
 }

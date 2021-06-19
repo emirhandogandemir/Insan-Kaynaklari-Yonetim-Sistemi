@@ -74,6 +74,11 @@ public class JobSeeker extends User {
 	@JsonIgnore
 	private List<Experience> experiences;
 	
+	@JsonIgnore
+    @OneToMany(mappedBy = "jobSeeker")
+    private List<Link> links;
+	
+	
 	@OneToMany(mappedBy="jobSeeker")
 	@JsonIgnore
 	private List<Skill> skills;

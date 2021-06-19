@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.javareact.hrms.business.abstracts.VerificationCodeService;
+import com.javareact.hrms.core.emailSender.spring.EmailSenderService;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.core.utilities.results.SuccessResult;
 import com.javareact.hrms.dataAccess.abstracts.VerificationCodeDao;
@@ -14,12 +15,16 @@ public class VerificationCodeManager implements VerificationCodeService {
 
 	
 private VerificationCodeDao verificationCodeDao;
+private EmailSenderService emailSenderService;
 	
-	@Autowired
-	public VerificationCodeManager(VerificationCodeDao verificationCodeDao) {
-		super();
-		this.verificationCodeDao = verificationCodeDao;
-	}
+@Autowired
+	public VerificationCodeManager(VerificationCodeDao verificationCodeDao, EmailSenderService emailSenderService) {
+	super();
+	this.verificationCodeDao = verificationCodeDao;
+	this.emailSenderService = emailSenderService;
+}
+
+	
 
 	@Override
 	public Result add(VerificationCode code) {

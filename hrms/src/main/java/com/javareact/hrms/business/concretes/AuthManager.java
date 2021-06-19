@@ -11,6 +11,7 @@ import com.javareact.hrms.business.abstracts.EmployerService;
 import com.javareact.hrms.business.abstracts.JobSeekerService;
 import com.javareact.hrms.business.abstracts.UserService;
 import com.javareact.hrms.business.abstracts.VerificationCodeService;
+import com.javareact.hrms.core.emailSender.spring.EmailSenderService;
 import com.javareact.hrms.core.utilities.adapters.MernisService;
 import com.javareact.hrms.core.utilities.results.ErrorResult;
 import com.javareact.hrms.core.utilities.results.Result;
@@ -29,12 +30,13 @@ public class AuthManager implements AuthService {
 	private VerificationService verificationService;
 	private MernisService mernisService;
 	private VerificationCodeService verificationCodeService;
+	private EmailSenderService emailSenderService;
 
 	
 	@Autowired
 	public AuthManager(UserService userService, EmployerService employerService, JobSeekerService jobseekerService,
 			VerificationService verificationService,  MernisService mernisService,
-			VerificationCodeService verificationCodeService) {
+			VerificationCodeService verificationCodeService,EmailSenderService emailSenderService) {
 		super();
 		this.userService = userService;
 		this.employerService = employerService;
@@ -42,6 +44,7 @@ public class AuthManager implements AuthService {
 		this.verificationService = verificationService;
 		this.mernisService = mernisService;
 		this.verificationCodeService = verificationCodeService;
+		this.emailSenderService=emailSenderService;
 	}
 
 	@Override
@@ -70,6 +73,7 @@ public class AuthManager implements AuthService {
 		employerService.add(employer);
 		String code = verificationService.sendCode();
 		verificationCodeRecord(code, employer.getId(), employer.getEmail());
+		emailSenderService.sendSimpleEmail("Ofgadut00@gmail.com",code, "Hrms Project Verification");
 		return new SuccessResult("Registration has been successfully completed");
 
 	}
@@ -101,6 +105,7 @@ public class AuthManager implements AuthService {
 		jobseekerService.add(jobseeker);
 		String code = verificationService.sendCode();
 		verificationCodeRecord(code, jobseeker.getId(), jobseeker.getEmail());
+		emailSenderService.sendSimpleEmail("emirhandgndmr@mail.com.tr",code, "Hrms Project Verification");
 		return new SuccessResult("Registration has been successfully completed");
 	}
 
