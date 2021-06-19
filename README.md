@@ -30,8 +30,8 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
 - `Cloudinary`
 - <img src="https://user-images.githubusercontent.com/74687192/120887527-1504d200-c5fc-11eb-958f-79266c3a93fa.png" width="15%" height="15%" />
 ---
---- `Spring Mail`
--  <img src="https://user-images.githubusercontent.com/74687192/122648846-aa8f7e00-d133-11eb-9cf0-36a81bcfcf2d.png" width="15%" height="15%" />
+- `Spring Mail`
+- <img src="https://user-images.githubusercontent.com/74687192/122648846-aa8f7e00-d133-11eb-9cf0-36a81bcfcf2d.png" width="15%" height="15%" />
 
 ### Swagger Tarafında Anlık Görüntü
     
