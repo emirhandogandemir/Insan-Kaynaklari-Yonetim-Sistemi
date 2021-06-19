@@ -34,7 +34,8 @@ insan kaynaklarının, iş süreçlerinin ve verilerin kolay yönetimini sağlam
 ### Swagger Tarafında Anlık Görüntü
     
 ![swagger](https://user-images.githubusercontent.com/74687192/120887592-817fd100-c5fc-11eb-95fa-408f50937e98.PNG)
-  
+   
+### Spring Mail kullanımından sonra .Admin tarafından , sisteme kayıt olan Maile Java UUID kullanarak gönderdiğim mail içeriği
     
 ## Projemİ Geliştirirken Faydalandığım linkler 
 ---
