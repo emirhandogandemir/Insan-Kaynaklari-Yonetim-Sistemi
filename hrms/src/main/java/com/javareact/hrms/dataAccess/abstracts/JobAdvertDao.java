@@ -33,4 +33,8 @@ public interface JobAdvertDao extends JpaRepository<JobAdvert, Integer> {
 	List<JobAdvert> getAllByEmployerId(int employerId);
 	
 	
+	List<JobAdvert> getByCity_Id(int cityId);
+	
+	List<JobAdvert> getByWorkType_Id(int workId);
+	
 }

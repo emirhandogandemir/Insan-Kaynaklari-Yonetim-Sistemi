@@ -95,6 +95,22 @@ public class JobAdvertsController {
 		return this.jobAdvertService.getAllByEmployerId(id);
 	}
 	
+	
+	@GetMapping("/getAllByCityId")
+	public DataResult<List<JobAdvert>> getAllByCityId(@RequestParam int cityId){
+		return this.jobAdvertService.getByCityId(cityId);
+	}
+	
+	@GetMapping("/getAllByWorkTypeId")
+	public DataResult<List<JobAdvert>> getAllByWorkTypeId(@RequestParam int workTypeId){
+		return this.jobAdvertService.getByWorkTypeId(workTypeId);
+	}
+	
+	@GetMapping("/getAllPagination")
+	public DataResult<List<JobAdvert>> getAllPagination(@RequestParam int pageNo){
+		return this.jobAdvertService.getAllPagination(pageNo);
+	}
+	
 //	---------
 	//@GetMapping("/getAllOpenJobAdvertList")
 	//public DataResult<List<JobAdvert>> getAllOpenJobAdvertList(){

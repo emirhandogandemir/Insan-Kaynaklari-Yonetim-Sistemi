@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.javareact.hrms.business.abstracts.JobAdvertService;
@@ -22,10 +25,10 @@ import com.javareact.hrms.dataAccess.abstracts.WorkTypeDao;
 import com.javareact.hrms.entities.concretes.JobAdvert;
 import com.javareact.hrms.entities.concretes.JobAdvertConfirmation;
 import com.javareact.hrms.entities.dtos.JobAdvertDto;
+
 @Service
 public class JobAdvertManager implements JobAdvertService {
 
-	
 	private JobAdvertDao jobAdvertDao;
 	private CityDao cityDao;
 	private EmployerDao employerDao;
@@ -48,14 +51,12 @@ public class JobAdvertManager implements JobAdvertService {
 		this.jobAdvertConfirmationDao = jobAdvertConfirmationDao;
 	}
 
-
-
 	@Override
-	@CacheEvict(value="allJobAdverts" ,allEntries=true)
+	@CacheEvict(value = "allJobAdverts", allEntries = true)
 	public Result add(JobAdvertDto jobAdvertDto) {
-		
+
 		// Dao , business, frontend = ?
-	
+
 		JobAdvert jobAdvert = new JobAdvert();
 		jobAdvert.setCity(this.cityDao.getById(jobAdvertDto.getCityId()));
 		jobAdvert.setJobPosition(this.jobPositionDao.getById(jobAdvertDto.getJobPositionId()));
@@ -67,17 +68,14 @@ public class JobAdvertManager implements JobAdvertService {
 		jobAdvert.setOpenPositionCount(jobAdvertDto.getOpenPositionCount());
 		jobAdvert.setEmployer(this.employerDao.getById(jobAdvertDto.getEmployerId()));
 		jobAdvert.setDeadline(jobAdvertDto.getDeadLine());
-	
-		
+
 		this.jobAdvertDao.save(jobAdvert);
-		
-		//JobAdvertConfirmation jobAdvertConfirmation = new JobAdvertConfirmation();
+
+		// JobAdvertConfirmation jobAdvertConfirmation = new JobAdvertConfirmation();
 		return new SuccessResult("başarı ile eklendi");
-		
+
 	}
 
-	
-	
 	@Override
 	public Result update(JobAdvert jobAdvert) {
 		this.jobAdvertDao.save(jobAdvert);
@@ -100,7 +98,6 @@ public class JobAdvertManager implements JobAdvertService {
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAll());
 	}
 
-
 	@Override
 	public DataResult<List<JobAdvert>> getAllOpenJobAdvertList() {
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllOpenJobAdvertList());
@@ -117,57 +114,72 @@ public class JobAdvertManager implements JobAdvertService {
 	}
 
 	private boolean CheckIfNullField(JobAdvert jobAdvert) {
-		if (jobAdvert.getJobPosition().getId() != 0 && jobAdvert.getDescription() != null && jobAdvert.getCity().getId() != 0
-				&& jobAdvert.getOpenPositionCount() != 0) {
+		if (jobAdvert.getJobPosition().getId() != 0 && jobAdvert.getDescription() != null
+				&& jobAdvert.getCity().getId() != 0 && jobAdvert.getOpenPositionCount() != 0) {
 			return true;
 		}
 		return false;
 	}
 
-
-
 	@Override
 	public DataResult<List<JobAdvert>> getAllByIsActiveByEmployee() {
-	// BURASI AÇIK İŞ İLANLARI VE DOĞRULANMIŞ İŞ İLANLARININ GÖZÜKTÜĞÜ KISIM
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllByIsActiveByEmployee()); 
+		// BURASI AÇIK İŞ İLANLARI VE DOĞRULANMIŞ İŞ İLANLARININ GÖZÜKTÜĞÜ KISIM
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllByIsActiveByEmployee());
 	}
-
-
 
 	@Override
 	public DataResult<List<JobAdvert>> getAllByIsActiveByEmployee_False() {
 		// Açık olan iş ilanlarını admin görecek sadece kendi sisteminden onaylamak için
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllByIsActiveByEmployee_False()) ;
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllByIsActiveByEmployee_False());
 	}
-
-
 
 	@Override
 	public Result changeIsActiveByEmployee(int jobAdvertId) {
-		// sadece trueya çekmek için 
-	JobAdvert jobAdvertIsActiveEmployee= this.jobAdvertDao.findById(jobAdvertId);
-	jobAdvertIsActiveEmployee.setActive(!jobAdvertIsActiveEmployee.isActive());
-	this.jobAdvertDao.save(jobAdvertIsActiveEmployee);
-	return new SuccessResult("İş ilanının admin tarafından aktifliği değiştirildi");
+		// sadece trueya çekmek için
+		JobAdvert jobAdvertIsActiveEmployee = this.jobAdvertDao.findById(jobAdvertId);
+		jobAdvertIsActiveEmployee.setActive(!jobAdvertIsActiveEmployee.isActive());
+		this.jobAdvertDao.save(jobAdvertIsActiveEmployee);
+		return new SuccessResult("İş ilanının admin tarafından aktifliği değiştirildi");
 	}
-
-
 
 	@Override
 	public Result changeIsOpenByEmployer(int jobAdvertId) {
 		// İş verenin aktiflik değiştireceği
-		JobAdvert jobAdvertToChangeIsOpen =this.jobAdvertDao.findById(jobAdvertId);
+		JobAdvert jobAdvertToChangeIsOpen = this.jobAdvertDao.findById(jobAdvertId);
 		jobAdvertToChangeIsOpen.setOpen(!jobAdvertToChangeIsOpen.isOpen());
 		this.jobAdvertDao.save(jobAdvertToChangeIsOpen);
 		return new SuccessResult("İş ilanının iş veren tarafından tarafından aktifliği değiştirildi");
 	}
 
-
-
 	@Override
 	public DataResult<List<JobAdvert>> getAllByEmployerId(int employerId) {
+
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllByEmployerId(employerId),
+				"Employer Idye göre getirildi");
+	}
+
+	@Override
+	public DataResult<List<JobAdvert>> getByCityId(int cityId) {
+
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getByCity_Id(cityId));
+	}
+
+	@Override
+	public DataResult<List<JobAdvert>> getByWorkTypeId(int workTypeId) {
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getByWorkType_Id(workTypeId));
+	}
+
+	@Override
+	public DataResult<List<JobAdvert>> getAllSorted() {
+		Sort sort =Sort.by(Sort.Direction.DESC,"productName");
+		return  new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAll(sort),"Başarılı");
+	}
+
+	@Override
+	public DataResult<List<JobAdvert>> getAllPagination(int pageNo) {
+		Pageable pageable = PageRequest.of(pageNo-1, 10);
 		
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllByEmployerId(employerId),"Employer Idye göre getirildi");
+		return  new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAll(pageable).getContent(),"Başarılı");
 	}
 
 }
