@@ -80,8 +80,8 @@ public class JobAdvertsController {
 	}
 	
 	@GetMapping("/getAllActiveAndOpenJobAdverts")
-	public DataResult<List<JobAdvert>> getAllByIsActiveByEmployee(){
-		return this.jobAdvertService.getAllByIsActiveByEmployee();
+	public DataResult<List<JobAdvert>> getAllByIsActiveByEmployee(@RequestParam int pageNo){
+		return this.jobAdvertService.getAllByIsActiveByEmployee(pageNo);
 	}
 	
 	@GetMapping("/getAllOpenJobAdvertsAndIsActiveFalse")
@@ -98,12 +98,12 @@ public class JobAdvertsController {
 	
 	@GetMapping("/getAllByCityId")
 	public DataResult<List<JobAdvert>> getAllByCityId(@RequestParam int cityId){
-		return this.jobAdvertService.getByCityId(cityId);
+		return this.jobAdvertService.getAllByCityId(cityId);
 	}
 	
 	@GetMapping("/getAllByWorkTypeId")
 	public DataResult<List<JobAdvert>> getAllByWorkTypeId(@RequestParam int workTypeId){
-		return this.jobAdvertService.getByWorkTypeId(workTypeId);
+		return this.jobAdvertService.getAllByWorkTypeId(workTypeId);
 	}
 	
 	@GetMapping("/getAllPagination")
@@ -111,19 +111,10 @@ public class JobAdvertsController {
 		return this.jobAdvertService.getAllPagination(pageNo);
 	}
 	
-//	---------
-	//@GetMapping("/getAllOpenJobAdvertList")
-	//public DataResult<List<JobAdvert>> getAllOpenJobAdvertList(){
-	//	return this.jobAdvertService.getAllOpenJobAdvertList();
-	//}
+	@GetMapping("/getAllByCityIdAndWorkTypeId")
+	public DataResult<List<JobAdvert>> getAllByCityIdAndWorkTypeId(@RequestParam int cityId,@RequestParam int workTypeId){
+		return this.jobAdvertService.getAllByCityIdAndWorkTypeId(cityId, workTypeId);
+	}
 	
-	//@GetMapping("/findAllByOrderByPublishedAt")
-	//public DataResult<List<JobAdvert>> findAllByOrderByPublishedAt(){
-	//	return this.jobAdvertService.findAllByOrderByPublishedAt();
-	//}
-	
-	//@GetMapping("/getAllOpenJobAdvertByEmployer")
-	//public DataResult<List<JobAdvert>> getAllOpenJobAdvertByEmployer(int id){
-	//	return this.jobAdvertService.getAllOpenJobAdvertByEmployer(id);
-	//}
+
 }

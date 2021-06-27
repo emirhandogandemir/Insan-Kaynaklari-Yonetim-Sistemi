@@ -42,4 +42,5 @@ public class Language extends Base{
 	 //@JsonIgnore()
 	@JoinColumn(name = "jobseeker_id")
 	private JobSeeker jobSeeker;
+	
 }

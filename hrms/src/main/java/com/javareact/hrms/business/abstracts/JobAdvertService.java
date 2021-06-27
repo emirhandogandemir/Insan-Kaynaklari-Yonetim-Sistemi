@@ -25,15 +25,17 @@ public interface JobAdvertService {
 
 	DataResult<List<JobAdvert>> getAllOpenJobAdvertByEmployer(int id);
 
-	DataResult<List<JobAdvert>> getAllByIsActiveByEmployee();// iş arayan
+	DataResult<List<JobAdvert>> getAllByIsActiveByEmployee(int pageNo);// iş arayan
 
 	DataResult<List<JobAdvert>> getAllByIsActiveByEmployee_False();// admin
 
 	DataResult<List<JobAdvert>> getAllByEmployerId(int employerId);
 
-	DataResult<List<JobAdvert>> getByCityId(int cityId);
+	DataResult<List<JobAdvert>> getAllByCityId(int cityId);
 
-	DataResult<List<JobAdvert>> getByWorkTypeId(int workTypeId);
+	DataResult<List<JobAdvert>> getAllByWorkTypeId(int workTypeId);
+	
+	DataResult<List<JobAdvert>> getAllByCityIdAndWorkTypeId(int cityId,int workTypeId);
 	
 	DataResult<List<JobAdvert>> getAllSorted();
 	

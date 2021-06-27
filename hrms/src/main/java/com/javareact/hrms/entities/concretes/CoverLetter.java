@@ -34,4 +34,5 @@ public class CoverLetter extends Base{
 	@JoinColumn(name = "jobseeker_id")
 	//@JsonIgnore
 	private JobSeeker jobSeeker;
+	
 }

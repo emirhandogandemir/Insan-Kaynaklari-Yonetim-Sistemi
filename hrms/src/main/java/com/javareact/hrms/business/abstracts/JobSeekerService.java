@@ -11,6 +11,7 @@ public interface JobSeekerService {
 	
 	
 	Result add(JobSeeker candidate);
+	//Result updateCv(JobSeekerCvDto jobSeekerCvDto);
 	Result update(JobSeeker jobseeker);
 	Result delete(int id);
 	

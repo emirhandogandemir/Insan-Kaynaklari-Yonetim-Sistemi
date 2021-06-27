@@ -5,6 +5,7 @@ import java.util.List;
 import com.javareact.hrms.core.utilities.results.DataResult;
 import com.javareact.hrms.core.utilities.results.Result;
 import com.javareact.hrms.entities.concretes.CoverLetter;
+import com.javareact.hrms.entities.concretes.Link;
 
 public interface CoverLetterService {
 Result add(CoverLetter coverLetterForCv);
@@ -12,4 +13,5 @@ Result update(CoverLetter coverLetterForCv);
 Result delete(int id);
 DataResult<CoverLetter> getById(int id);
 DataResult<List<CoverLetter>> getAll();
+DataResult<List<CoverLetter>> getAllByJobSeekerId(int id);
 }

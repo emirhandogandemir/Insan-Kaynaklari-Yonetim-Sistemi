@@ -52,4 +52,5 @@ public class Experience extends Base{
     //@JsonIgnore()
     @JoinColumn(name = "jobseeker_id")
     private JobSeeker jobSeeker;
+    
 }

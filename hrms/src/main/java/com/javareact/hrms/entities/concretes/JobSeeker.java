@@ -61,7 +61,6 @@ public class JobSeeker extends User {
 	@JsonIgnore()
 	private List<Language> languages;
 	
-	
 	@JsonIgnore
 	@OneToOne(mappedBy = "jobSeeker")
 	private Image image;

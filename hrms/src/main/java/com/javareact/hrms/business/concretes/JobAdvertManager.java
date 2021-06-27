@@ -26,6 +26,8 @@ import com.javareact.hrms.entities.concretes.JobAdvert;
 import com.javareact.hrms.entities.concretes.JobAdvertConfirmation;
 import com.javareact.hrms.entities.dtos.JobAdvertDto;
 
+import net.bytebuddy.asm.Advice.This;
+
 @Service
 public class JobAdvertManager implements JobAdvertService {
 
@@ -122,9 +124,11 @@ public class JobAdvertManager implements JobAdvertService {
 	}
 
 	@Override
-	public DataResult<List<JobAdvert>> getAllByIsActiveByEmployee() {
+	public DataResult<List<JobAdvert>> getAllByIsActiveByEmployee(int pageNo) {
 		// BURASI AÇIK İŞ İLANLARI VE DOĞRULANMIŞ İŞ İLANLARININ GÖZÜKTÜĞÜ KISIM
-		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllByIsActiveByEmployee());
+		Pageable pageable = PageRequest.of(pageNo-1, 10);
+		
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllByIsActiveByEmployee(pageable));
 	}
 
 	@Override
@@ -159,13 +163,13 @@ public class JobAdvertManager implements JobAdvertService {
 	}
 
 	@Override
-	public DataResult<List<JobAdvert>> getByCityId(int cityId) {
+	public DataResult<List<JobAdvert>> getAllByCityId(int cityId) {
 
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getByCity_Id(cityId));
 	}
 
 	@Override
-	public DataResult<List<JobAdvert>> getByWorkTypeId(int workTypeId) {
+	public DataResult<List<JobAdvert>> getAllByWorkTypeId(int workTypeId) {
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getByWorkType_Id(workTypeId));
 	}
 
@@ -180,6 +184,11 @@ public class JobAdvertManager implements JobAdvertService {
 		Pageable pageable = PageRequest.of(pageNo-1, 10);
 		
 		return  new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAll(pageable).getContent(),"Başarılı");
+	}
+
+	@Override
+	public DataResult<List<JobAdvert>> getAllByCityIdAndWorkTypeId(int cityId, int workTypeId) {
+		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getByCity_IdAndWorkType_Id(cityId, workTypeId));
 	}
 
 }

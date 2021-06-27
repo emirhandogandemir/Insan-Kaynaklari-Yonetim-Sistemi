@@ -26,7 +26,6 @@ public class Education extends Base{
 
     @Column(name = "department_name")
     @NotNull
-
     private String departmentName;
 
     @Column(name = "start_year")
@@ -41,4 +40,5 @@ public class Education extends Base{
     //@JsonIgnore()
     @JoinColumn(name = "jobseeker_id")
     private JobSeeker jobSeeker;
+
 }

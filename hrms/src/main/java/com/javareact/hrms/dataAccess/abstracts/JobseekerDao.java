@@ -8,6 +8,9 @@ public interface JobSeekerDao extends JpaRepository<JobSeeker, Integer> {
 	JobSeeker findJobseekerByNationalId(String nationalId);
 	//veritabanında tc no arıyor bu
 	JobSeeker getById(int id);
+	
+	
+	//JobSeeker getByJobSeekerCvDto();
 
 	
 }

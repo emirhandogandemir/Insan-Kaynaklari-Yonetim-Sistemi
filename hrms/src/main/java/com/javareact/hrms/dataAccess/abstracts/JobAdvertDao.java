@@ -1,7 +1,9 @@
 package com.javareact.hrms.dataAccess.abstracts;
 
+
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -24,7 +26,7 @@ public interface JobAdvertDao extends JpaRepository<JobAdvert, Integer> {
 	List<JobAdvert> getAllOpenJobAdvertByEmployer(int id);
 	
 	@Query("From JobAdvert where is_active=true AND is_open=true Order By published_at DESC")// iş arayanın göreceği 1.sayfa
-	List<JobAdvert> getAllByIsActiveByEmployee();
+	List<JobAdvert> getAllByIsActiveByEmployee(Pageable pageable);
 	
 	@Query("From JobAdvert where is_active=false And is_open=true Order By published_at DESC")//active edilmemiş ADMİN GÖRÜCEK
 	List <JobAdvert> getAllByIsActiveByEmployee_False();
@@ -37,4 +39,5 @@ public interface JobAdvertDao extends JpaRepository<JobAdvert, Integer> {
 	
 	List<JobAdvert> getByWorkType_Id(int workId);
 	
+	List<JobAdvert> getByCity_IdAndWorkType_Id(int cityId,int workTypeId);
 }

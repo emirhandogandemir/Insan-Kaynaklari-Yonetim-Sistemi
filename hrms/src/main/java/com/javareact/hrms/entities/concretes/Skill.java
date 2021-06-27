@@ -38,4 +38,5 @@ public class Skill extends Base {
 	private JobSeeker jobSeeker;
 	
 	
+	
 }

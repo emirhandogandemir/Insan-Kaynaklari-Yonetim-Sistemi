@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
+import com.javareact.hrms.business.abstracts.CoverLetterService;
 import com.javareact.hrms.business.abstracts.EducationService;
 import com.javareact.hrms.business.abstracts.ExperienceService;
 import com.javareact.hrms.business.abstracts.ImageService;
@@ -20,6 +21,7 @@ import com.javareact.hrms.core.utilities.results.SuccessResult;
 import com.javareact.hrms.dataAccess.abstracts.JobSeekerDao;
 import com.javareact.hrms.entities.concretes.JobSeeker;
 import com.javareact.hrms.entities.dtos.JobSeekerCvDto;
+
 @Service
 public class JobSeekerManager implements JobSeekerService {
 
@@ -29,12 +31,14 @@ public class JobSeekerManager implements JobSeekerService {
 	private LinkService linkForCvService;
 	private SkillService skillForCvService;
 	private EducationService educationForCvService;
+	private CoverLetterService coverLetterForCvService;
 	private JobSeekerDao jobseekerDao;
 
-@Autowired
+	@Autowired
 	public JobSeekerManager(ExperienceService experienceForCvService, LanguageService languageForCvService,
 			ImageService imageForCvService, LinkService linkForCvService, SkillService skillForCvService,
-			EducationService educationForCvService, JobSeekerDao jobseekerDao) {
+			EducationService educationForCvService, JobSeekerDao jobseekerDao,
+			CoverLetterService coverLetterForCvService) {
 		super();
 		this.experienceForCvService = experienceForCvService;
 		this.languageForCvService = languageForCvService;
@@ -43,10 +47,11 @@ public class JobSeekerManager implements JobSeekerService {
 		this.skillForCvService = skillForCvService;
 		this.educationForCvService = educationForCvService;
 		this.jobseekerDao = jobseekerDao;
+		this.coverLetterForCvService = coverLetterForCvService;
 	}
 
 	@Override
-	@CacheEvict(value="allJobSeekers",allEntries=true)
+	@CacheEvict(value = "allJobSeekers", allEntries = true)
 	public Result add(JobSeeker jobseeker) {
 		this.jobseekerDao.save(jobseeker);
 
@@ -82,14 +87,22 @@ public class JobSeekerManager implements JobSeekerService {
 
 	@Override
 	public DataResult<JobSeekerCvDto> getJobseekerCVById(int id) {
-		JobSeekerCvDto cv= new JobSeekerCvDto();
-		cv.experiences=this.experienceForCvService.getAllByJobSeekerId(id).getData();
-		cv.languages=this.languageForCvService.getAllByJobSeekerId(id).getData();
-		cv.image=this.imageForCvService.getByJobSeekerId(id).getData();
-		cv.links =this.linkForCvService.getAllByJobSeekerId(id).getData();
-		cv.skills=this.skillForCvService.getAllByJobSeekerId(id).getData();
-		cv.educations=this.educationForCvService.getAllByJobSeekerId(id).getData();
+		JobSeekerCvDto cv = new JobSeekerCvDto();
+		cv.jobSeeker = this.getById(id).getData();
+		cv.experiences = this.experienceForCvService.getAllByJobSeekerId(id).getData();
+		cv.languages = this.languageForCvService.getAllByJobSeekerId(id).getData();
+		cv.image = this.imageForCvService.getByJobSeekerId(id).getData();
+		cv.links = this.linkForCvService.getAllByJobSeekerId(id).getData();
+		cv.skills = this.skillForCvService.getAllByJobSeekerId(id).getData();
+		cv.educations = this.educationForCvService.getAllByJobSeekerId(id).getData();
+		cv.coverletters = this.coverLetterForCvService.getAllByJobSeekerId(id).getData();
 		return new SuccessDataResult<JobSeekerCvDto>(cv);
 	}
+/*
+	@Override
+	public Result updateCv(JobSeekerCvDto jobSeekerCvDto) {
+		JobSeeker jobSeeker = new JobSeeker();
+		*/
 
 }
+	
