@@ -77,6 +77,9 @@ public class JobSeeker extends User {
     @OneToMany(mappedBy = "jobSeeker")
     private List<Link> links;
 	
+	@OneToMany(mappedBy="jobSeeker")
+	@JsonIgnore
+	private List<Favorite> favorites;
 	
 	@OneToMany(mappedBy="jobSeeker")
 	@JsonIgnore

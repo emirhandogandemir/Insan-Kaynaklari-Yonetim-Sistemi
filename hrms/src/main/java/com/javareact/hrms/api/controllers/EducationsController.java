@@ -42,7 +42,7 @@ public class EducationsController {
 	}
 	
 	@PostMapping("delete")
-	public Result delete(@RequestParam("id") int id) {
+	public Result delete(@RequestParam int id) {
 		return this.educationForCvService.delete(id);
 	}
 	

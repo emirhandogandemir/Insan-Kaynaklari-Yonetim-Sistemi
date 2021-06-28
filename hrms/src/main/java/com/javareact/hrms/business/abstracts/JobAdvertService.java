@@ -25,7 +25,7 @@ public interface JobAdvertService {
 
 	DataResult<List<JobAdvert>> getAllOpenJobAdvertByEmployer(int id);
 
-	DataResult<List<JobAdvert>> getAllByIsActiveByEmployee(int pageNo);// iş arayan
+	DataResult<List<JobAdvert>> getAllByIsActiveByEmployee(int pageNo,int size);// iş arayan
 
 	DataResult<List<JobAdvert>> getAllByIsActiveByEmployee_False();// admin
 
@@ -37,9 +37,6 @@ public interface JobAdvertService {
 	
 	DataResult<List<JobAdvert>> getAllByCityIdAndWorkTypeId(int cityId,int workTypeId);
 	
-	DataResult<List<JobAdvert>> getAllSorted();
-	
-	DataResult<List<JobAdvert>> getAllPagination(int pageNo);
 
 	Result changeIsActiveByEmployee(int jobAdvertId);
 

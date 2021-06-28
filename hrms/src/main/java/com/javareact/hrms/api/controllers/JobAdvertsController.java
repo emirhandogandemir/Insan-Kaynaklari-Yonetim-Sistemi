@@ -80,8 +80,8 @@ public class JobAdvertsController {
 	}
 	
 	@GetMapping("/getAllActiveAndOpenJobAdverts")
-	public DataResult<List<JobAdvert>> getAllByIsActiveByEmployee(@RequestParam int pageNo){
-		return this.jobAdvertService.getAllByIsActiveByEmployee(pageNo);
+	public DataResult<List<JobAdvert>> getAllByIsActiveByEmployee(@RequestParam int pageNo,@RequestParam int size){
+		return this.jobAdvertService.getAllByIsActiveByEmployee(pageNo,size);
 	}
 	
 	@GetMapping("/getAllOpenJobAdvertsAndIsActiveFalse")
@@ -104,11 +104,6 @@ public class JobAdvertsController {
 	@GetMapping("/getAllByWorkTypeId")
 	public DataResult<List<JobAdvert>> getAllByWorkTypeId(@RequestParam int workTypeId){
 		return this.jobAdvertService.getAllByWorkTypeId(workTypeId);
-	}
-	
-	@GetMapping("/getAllPagination")
-	public DataResult<List<JobAdvert>> getAllPagination(@RequestParam int pageNo){
-		return this.jobAdvertService.getAllPagination(pageNo);
 	}
 	
 	@GetMapping("/getAllByCityIdAndWorkTypeId")

@@ -2,6 +2,7 @@ package com.javareact.hrms.entities.concretes;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
@@ -35,7 +37,6 @@ public class JobAdvert {
 	@Column(name = "id")
 	private int id;
 
-
 	@Column(name = "description")
 	@NotNull
 	@NotBlank
@@ -54,9 +55,8 @@ public class JobAdvert {
 	@Future
 	private LocalDate deadline;
 
-	@Column(name = "published_at",columnDefinition = "Date default CURRENT_DATE")
-	private LocalDate publishedAt= LocalDate.now();
-
+	@Column(name = "published_at", columnDefinition = "Date default CURRENT_DATE")
+	private LocalDate publishedAt = LocalDate.now();
 
 	@Column(name = "is_open", columnDefinition = "boolean default true")
 	private boolean isOpen = true;
@@ -64,12 +64,14 @@ public class JobAdvert {
 	@Column(name = "is_active", columnDefinition = "boolean default false")
 	private boolean isActive = false;
 
-
+	@OneToMany(mappedBy = "jobAdvert")
+	@JsonIgnore
+	private List<Favorite> favorites;
 
 	@ManyToOne
 	@JoinColumn(name = "employer_id")
 	private Employer employer;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "job_position_id")
 	private JobPosition jobPosition;
@@ -77,16 +79,16 @@ public class JobAdvert {
 	@ManyToOne
 	@JoinColumn(name = "city_id")
 	private City city;
-	
+
 	@ManyToOne
-	@JoinColumn(name="work_hour_id")
+	@JoinColumn(name = "work_hour_id")
 	private WorkHour workHour;
-	
+
 	@ManyToOne
-	@JoinColumn(name="work_type_id")
+	@JoinColumn(name = "work_type_id")
 	private WorkType workType;
-	
-	@OneToOne(mappedBy="jobAdvert")
+
+	@OneToOne(mappedBy = "jobAdvert")
 	@JsonIgnore
 	private JobAdvertConfirmation jobAdvertConfirmation;
 }

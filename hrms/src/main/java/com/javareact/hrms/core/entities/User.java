@@ -6,6 +6,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -47,6 +49,7 @@ public class User {
 	private String password;
 
 	@Column(name = "created_at", columnDefinition = "Date default CURRENT_DATE")
+	@JsonIgnore
 	private LocalDateTime createdAt = LocalDateTime.now();
 
 	@Column(name = "is_active", columnDefinition = "boolean default true")

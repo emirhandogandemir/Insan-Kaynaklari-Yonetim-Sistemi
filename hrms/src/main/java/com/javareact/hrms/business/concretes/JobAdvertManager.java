@@ -124,9 +124,9 @@ public class JobAdvertManager implements JobAdvertService {
 	}
 
 	@Override
-	public DataResult<List<JobAdvert>> getAllByIsActiveByEmployee(int pageNo) {
+	public DataResult<List<JobAdvert>> getAllByIsActiveByEmployee(int pageNo,int size) {
 		// BURASI AÇIK İŞ İLANLARI VE DOĞRULANMIŞ İŞ İLANLARININ GÖZÜKTÜĞÜ KISIM
-		Pageable pageable = PageRequest.of(pageNo-1, 10);
+		Pageable pageable = PageRequest.of(pageNo-1, size);
 		
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getAllByIsActiveByEmployee(pageable));
 	}
@@ -173,18 +173,8 @@ public class JobAdvertManager implements JobAdvertService {
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getByWorkType_Id(workTypeId));
 	}
 
-	@Override
-	public DataResult<List<JobAdvert>> getAllSorted() {
-		Sort sort =Sort.by(Sort.Direction.DESC,"productName");
-		return  new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAll(sort),"Başarılı");
-	}
+	
 
-	@Override
-	public DataResult<List<JobAdvert>> getAllPagination(int pageNo) {
-		Pageable pageable = PageRequest.of(pageNo-1, 10);
-		
-		return  new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.findAll(pageable).getContent(),"Başarılı");
-	}
 
 	@Override
 	public DataResult<List<JobAdvert>> getAllByCityIdAndWorkTypeId(int cityId, int workTypeId) {
