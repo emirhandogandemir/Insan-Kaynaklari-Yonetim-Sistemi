@@ -64,4 +64,9 @@ public class EmployersController {
 		return this.employerService.getAll();
 	}
 	
+	@GetMapping("/getallbyverify")
+	public DataResult<List<Employer>> getAllByVerify(){
+	return this.employerService.getAllByVerify();
+	}
+	
 }

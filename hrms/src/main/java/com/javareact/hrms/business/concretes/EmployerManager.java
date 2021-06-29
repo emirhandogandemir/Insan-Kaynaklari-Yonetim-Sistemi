@@ -55,6 +55,11 @@ public class EmployerManager implements EmployerService {
 		return new SuccessDataResult<List<Employer>>(this.employerDao.findAll());
 	}
 
+	@Override
+	public DataResult<List<Employer>> getAllByVerify() {
+		return new SuccessDataResult<List<Employer>>(this.employerDao.getAllByVerify());
+	}
+
 	
 	
 }
