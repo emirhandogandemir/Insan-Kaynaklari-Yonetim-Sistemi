@@ -19,5 +19,7 @@ public interface EmployerService {
 	DataResult<List<Employer>> getAll();
 	
 	DataResult<List<Employer>> getAllByVerify();
+	
+	Result changeIsVerifiedByEmployee(int employerId);
 
 }

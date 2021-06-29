@@ -66,7 +66,12 @@ public class EmployersController {
 	
 	@GetMapping("/getallbyverify")
 	public DataResult<List<Employer>> getAllByVerify(){
-	return this.employerService.getAllByVerify();
+	return this.employerService.getAllByVerify(); 
+	}
+	
+	@PostMapping("/changeverifiedstatus")
+	public Result changeIsVerifiedByEmployee(@RequestParam int id) {
+		return this.employerService.changeIsVerifiedByEmployee(id);
 	}
 	
 }
