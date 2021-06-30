@@ -39,6 +39,8 @@ public interface JobAdvertService {
 	
 	long countByJobPosition_Id(int jobPositionId);
 
+	long countGetAll(); 
+
 	Result changeIsActiveByEmployee(int jobAdvertId);
 
 	Result changeIsOpenByEmployer(int jobAdvertId);

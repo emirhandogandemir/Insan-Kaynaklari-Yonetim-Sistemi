@@ -61,4 +61,8 @@ public class JobPositionsController {
 	public DataResult<List<JobPosition>> getAll(){
 		return this.jobPositionService.getAll();
 	}
+	@GetMapping("countgetall")
+	public long countGetAll() {
+		return this.jobPositionService.countGetAll();
+	}
 }

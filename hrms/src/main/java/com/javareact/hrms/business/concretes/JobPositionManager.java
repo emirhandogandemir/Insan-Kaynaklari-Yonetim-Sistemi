@@ -63,4 +63,9 @@ private JobPositionDao jobPositionDao;
 		
 		return new SuccessDataResult<JobPosition>(this.jobPositionDao.findByJobTitle(title));
 	}
+
+	@Override
+	public long countGetAll() {
+		return this.jobPositionDao.count();
+	}
 }

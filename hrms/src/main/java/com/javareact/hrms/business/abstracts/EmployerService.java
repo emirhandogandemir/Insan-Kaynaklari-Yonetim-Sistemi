@@ -23,5 +23,7 @@ public interface EmployerService {
 	Result changeIsVerifiedByEmployee(int employerId);
 	
 	long countById(int id);
+	
+	long countGetAll();
 
 }

@@ -73,6 +73,11 @@ public class EmployerManager implements EmployerService {
 		return this.employerDao.countById(id);
 	}
 
+	@Override
+	public long countGetAll() {
+		return this.employerDao.count();
+	}
+
 	
 	
 }

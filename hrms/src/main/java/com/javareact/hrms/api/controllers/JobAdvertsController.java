@@ -114,6 +114,10 @@ public class JobAdvertsController {
 	public long countByJobPosition_Id(@RequestParam int jobPositionId) {
 		return this.jobAdvertService.countByJobPosition_Id(jobPositionId);
 	}
+	@GetMapping("countGetAll")
+	public long countGetAll() {
+		return this.jobAdvertService.countGetAll();
+	}
 	
 
 }

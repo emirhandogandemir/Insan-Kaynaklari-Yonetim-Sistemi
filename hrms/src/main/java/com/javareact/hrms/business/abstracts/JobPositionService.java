@@ -12,6 +12,8 @@ Result update(JobPosition jobPosition);
 Result delete(int id);
 DataResult<JobPosition> getById(int id);
 
+long countGetAll();
+
 Result add(JobPosition jobPosition);
 DataResult<List <JobPosition>> getAll();
 DataResult<JobPosition> getJobByTitle(String title);

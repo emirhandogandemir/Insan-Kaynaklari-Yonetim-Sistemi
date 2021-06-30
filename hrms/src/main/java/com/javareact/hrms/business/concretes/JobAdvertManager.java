@@ -186,4 +186,9 @@ public class JobAdvertManager implements JobAdvertService {
 		return this.jobAdvertDao.countByJobPosition_Id(jobPositionId);
 	}
 
+	@Override
+	public long countGetAll() {
+		return this.jobAdvertDao.count();
+}
+
 }

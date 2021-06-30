@@ -78,4 +78,9 @@ public class EmployersController {
 		return this.employerService.countById(id);
 	}
 	
+	@GetMapping("countGetAll")
+	public long  countGetALL() {
+		return this.employerService.countGetAll();
+	}
+	
 }
