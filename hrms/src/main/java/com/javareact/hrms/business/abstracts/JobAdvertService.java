@@ -37,6 +37,7 @@ public interface JobAdvertService {
 	
 	DataResult<List<JobAdvert>> getAllByCityIdAndWorkTypeId(int cityId,int workTypeId);
 	
+	long countByJobPosition_Id(int jobPositionId);
 
 	Result changeIsActiveByEmployee(int jobAdvertId);
 

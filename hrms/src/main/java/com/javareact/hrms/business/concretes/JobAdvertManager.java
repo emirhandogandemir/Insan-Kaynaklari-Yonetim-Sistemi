@@ -181,4 +181,9 @@ public class JobAdvertManager implements JobAdvertService {
 		return new SuccessDataResult<List<JobAdvert>>(this.jobAdvertDao.getByCity_IdAndWorkType_Id(cityId, workTypeId));
 	}
 
+	@Override
+	public long countByJobPosition_Id(int jobPositionId) {
+		return this.jobAdvertDao.countByJobPosition_Id(jobPositionId);
+	}
+
 }

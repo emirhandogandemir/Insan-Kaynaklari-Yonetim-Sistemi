@@ -21,5 +21,7 @@ public interface EmployerService {
 	DataResult<List<Employer>> getAllByVerify();
 	
 	Result changeIsVerifiedByEmployee(int employerId);
+	
+	long countById(int id);
 
 }

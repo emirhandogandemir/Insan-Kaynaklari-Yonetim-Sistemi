@@ -31,6 +31,7 @@ public interface JobAdvertDao extends JpaRepository<JobAdvert, Integer> {
 	@Query("From JobAdvert where is_active=false And is_open=true Order By published_at DESC")//active edilmemiş ADMİN GÖRÜCEK
 	List <JobAdvert> getAllByIsActiveByEmployee_False();
 	
+	long countByJobPosition_Id(int jobPositionId);// iş ilanının idsine göre kaç tane iş ilanı sayısı olduğunu gösteren derivered query
 	
 	List<JobAdvert> getAllByEmployerId(int employerId);
 	

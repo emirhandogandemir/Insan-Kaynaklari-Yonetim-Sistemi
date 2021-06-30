@@ -68,6 +68,11 @@ public class EmployerManager implements EmployerService {
 		return new SuccessResult("Şirketin Doğrulanma durumu değiştirildi");
 	}
 
+	@Override
+	public long countById(int id) {
+		return this.employerDao.countById(id);
+	}
+
 	
 	
 }

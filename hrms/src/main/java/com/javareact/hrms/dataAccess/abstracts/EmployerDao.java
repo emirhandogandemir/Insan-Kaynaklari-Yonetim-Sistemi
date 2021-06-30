@@ -16,4 +16,6 @@ public interface EmployerDao extends JpaRepository<Employer, Integer> {
 	@Query("From Employer where is_verified=false")
 	List<Employer> getAllByVerify();
 	
+	long countById(int id);
+	
 }

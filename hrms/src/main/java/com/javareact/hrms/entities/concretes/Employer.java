@@ -29,8 +29,6 @@ import lombok.NoArgsConstructor;
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler","jobAdverts"})
 public class Employer extends User{
 
-
-
 	
 	@Column(name= "company_name")
 	@NotNull(message="CompanyName cannot be null")

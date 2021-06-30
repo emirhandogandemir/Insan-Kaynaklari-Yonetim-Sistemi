@@ -110,6 +110,10 @@ public class JobAdvertsController {
 	public DataResult<List<JobAdvert>> getAllByCityIdAndWorkTypeId(@RequestParam int cityId,@RequestParam int workTypeId){
 		return this.jobAdvertService.getAllByCityIdAndWorkTypeId(cityId, workTypeId);
 	}
+	@GetMapping("/countByJobPositionId")
+	public long countByJobPosition_Id(@RequestParam int jobPositionId) {
+		return this.jobAdvertService.countByJobPosition_Id(jobPositionId);
+	}
 	
 
 }
