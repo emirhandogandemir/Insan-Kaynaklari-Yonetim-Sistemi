@@ -24,7 +24,6 @@ private EmailSenderService emailSenderService;
 	this.emailSenderService = emailSenderService;
 }
 
-	
 
 	@Override
 	public Result add(VerificationCode code) {
