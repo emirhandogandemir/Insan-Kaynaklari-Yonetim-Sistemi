@@ -12,7 +12,9 @@ import com.javareact.hrms.core.utilities.results.SuccessDataResult;
 import com.javareact.hrms.core.utilities.results.SuccessResult;
 import com.javareact.hrms.dataAccess.abstracts.VerificationEmployerDao;
 import com.javareact.hrms.entities.concretes.VerificationEmployer;
+
 @Service
+
 public class VerificationEmployerManager implements VerificationEmployerService {
 
 	private VerificationEmployerDao verificationEmployerDao;
