@@ -2,6 +2,8 @@ package com.javareact.hrms.dataAccess.abstracts;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface VerificationEmployerDao extends JpaRepository<T, ID> {
+import com.javareact.hrms.entities.concretes.VerificationEmployer;
 
+public interface VerificationEmployerDao extends JpaRepository<VerificationEmployer, Integer> {
+VerificationEmployer getByUserId(int userId);
 }
