@@ -14,4 +14,6 @@ public interface VerificationEmployerService {
 	DataResult<List<VerificationEmployer>> getAlll();
 	
 	DataResult<VerificationEmployer> getById(int id);
+	
+	DataResult<List<VerificationEmployer>> getAllByVerifyFalse();
 }

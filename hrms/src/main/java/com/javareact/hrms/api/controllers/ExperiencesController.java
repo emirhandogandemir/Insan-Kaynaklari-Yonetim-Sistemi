@@ -38,8 +38,6 @@ public class ExperiencesController {
 		return ResponseEntity.ok(this.experienceForCvService.add(experienceForCv));
 	}
 	
-	
-	
 	@PostMapping("update")
 	public ResponseEntity<?> update( @Valid @RequestBody Experience experienceForCv) {
 		return ResponseEntity.ok(this.experienceForCvService.update(experienceForCv));

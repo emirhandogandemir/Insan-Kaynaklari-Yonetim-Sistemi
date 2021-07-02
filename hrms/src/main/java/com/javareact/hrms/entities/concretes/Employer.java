@@ -45,8 +45,8 @@ public class Employer extends User{
 	@NotBlank
 	private String phoneNumber;
 	
-	@Column(name = "is_verified", columnDefinition = "boolean default true")
-	private boolean isVerified = true;
+	@Column(name = "is_verified", columnDefinition = "boolean default false")
+	private boolean isVerified = false;
 	
 	@JsonIgnore// bunu swaggerda görmemin bir mantığı yok
 	@OneToMany(mappedBy = "employer")

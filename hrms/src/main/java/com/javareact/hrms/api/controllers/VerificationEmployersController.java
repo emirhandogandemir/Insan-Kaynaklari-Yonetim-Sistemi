@@ -3,6 +3,7 @@ package com.javareact.hrms.api.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +18,7 @@ import com.javareact.hrms.entities.concretes.VerificationEmployer;
 
 @RestController
 @RequestMapping("/api/verificationemployer/")
+@CrossOrigin
 public class VerificationEmployersController {
 
 	private VerificationEmployerService verificationEmployerService;
@@ -44,5 +46,10 @@ public class VerificationEmployersController {
 	@GetMapping("getall")
 	public DataResult<List<VerificationEmployer>> getAll(){
 	return this.verificationEmployerService.getAlll();	
+	}
+	
+	@GetMapping("getAllByVerifyFalse")
+	public DataResult<List<VerificationEmployer>> getAllByVerifyFalse(){
+		return this.verificationEmployerService.getAllByVerifyFalse();
 	}
 }

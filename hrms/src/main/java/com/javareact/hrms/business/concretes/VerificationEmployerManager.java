@@ -44,7 +44,12 @@ public class VerificationEmployerManager implements VerificationEmployerService 
 
 	@Override
 	public DataResult<VerificationEmployer> getById(int id) {
-		return new SuccessDataResult<VerificationEmployer>(this.verificationEmployerDao.getByUserId(id));
+		return new SuccessDataResult<VerificationEmployer>(this.verificationEmployerDao.getById(id));
+	}
+
+	@Override
+	public DataResult<List<VerificationEmployer>> getAllByVerifyFalse() {
+	return new SuccessDataResult<List<VerificationEmployer>>(this.verificationEmployerDao.getAllByVerifyFalse());
 	}
 
 }
