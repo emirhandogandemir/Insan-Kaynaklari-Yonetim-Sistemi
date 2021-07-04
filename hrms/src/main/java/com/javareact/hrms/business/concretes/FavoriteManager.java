@@ -62,4 +62,9 @@ public class FavoriteManager implements FavoriteService {
 		return new SuccessDataResult<List<Favorite>>(this.favoriteDao.getByJobAdvert_Id(jobAdvertId));
 	}
 
+	@Override
+	public DataResult<Favorite> getByJobAdvert_IdAndJobSeeker_Id(int jobAdvertId, int jobSeekerId) {
+		return new SuccessDataResult<Favorite> (this.favoriteDao.getByJobAdvert_IdAndJobSeeker_Id(jobAdvertId, jobSeekerId));
+	}
+
 }

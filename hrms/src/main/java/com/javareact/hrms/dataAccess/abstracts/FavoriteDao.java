@@ -14,5 +14,6 @@ public interface FavoriteDao extends JpaRepository<Favorite, Integer> {
 	
 	List<Favorite> getByJobAdvert_Id(int jobAdvertId);
 	
+	Favorite getByJobAdvert_IdAndJobSeeker_Id(int jobAdvertId,int jobSeekerId);
 	
 }

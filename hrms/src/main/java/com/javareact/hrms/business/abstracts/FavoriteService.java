@@ -19,4 +19,6 @@ public interface FavoriteService {
 	
 	DataResult<List<Favorite>> getByJobSeekerId(int jobSeekerId);
 	DataResult<List<Favorite>> getByJobAdvertId(int jobAdvertId);
+	
+	DataResult<Favorite> getByJobAdvert_IdAndJobSeeker_Id(int jobAdvertId,int jobSeekerId);
 }

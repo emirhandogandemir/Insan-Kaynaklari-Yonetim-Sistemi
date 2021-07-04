@@ -63,7 +63,7 @@ public class EmployerManager implements EmployerService {
 	@Override
 	public Result changeIsVerifiedByEmployee(int employerId) {
 		Employer employer = this.employerDao.getById(employerId);
-		employer.setVerified(!employer.isVerified());
+		employer.setVerified(true);
 		this.employerDao.save(employer);
 		return new SuccessResult("Şirketin Doğrulanma durumu değiştirildi");
 	}
